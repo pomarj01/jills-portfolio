@@ -1,14 +1,17 @@
-import * as React from "react"
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
 import "../styles/index.css";
 
 
-const IndexPage = () => {
+export default () => {
   return (
-    <main>
-      <title>Home Page</title>
-      <h1> Jill's Portfolio</h1>
-    </main>
+    <>
+      <Helmet>
+        <meta charSet='utf-8' />
+        <title>Jillian Pomares's Portfolio</title>
+        <html lang='en' />
+        <meta name='description' content='Portfolio built using Gatsby' />
+      </Helmet>
+    </>
   )
-}
-
-export default IndexPage
+};
