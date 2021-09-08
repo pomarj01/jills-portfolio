@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
+import App from '../components/App'
 import "../styles/index.css";
 
 
@@ -12,6 +13,8 @@ export default () => {
         <html lang='en' />
         <meta name='description' content='Portfolio built using Gatsby' />
       </Helmet>
+
+      <App />
     </>
   )
 };
