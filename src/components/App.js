@@ -1,16 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import Hero from './Hero';
 
-const AppWrapper = styled.div`
-  height: 100%;
-`;
+const App = () => (
+  <div>
+    <Hero />
+  </div>
+);
 
-export default () => {
-  return (
-    <div>
-      <Hero />
-    </div>
-  )
-};
+export default App;
