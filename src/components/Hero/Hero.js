@@ -109,6 +109,10 @@ const ImagesWrapper = styled.div`
   width: 40%;
 `;
 
+
+
+//NOTE: Do nav on top content 
+
 const HeroDescription = () => (
   <Typewriter
     onInit={(typewriter) => {
