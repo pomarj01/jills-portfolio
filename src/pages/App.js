@@ -1,9 +1,9 @@
 import React from 'react';
-import Hero from './hero/Hero';
+import Hero from './hero';
 
 const App = () => (
   <div>
-    <Hero />
+    <Hero/>
   </div>
 );
 

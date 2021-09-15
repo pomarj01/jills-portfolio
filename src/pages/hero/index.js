@@ -1,10 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import Typewriter from 'typewriter-effect';
-import { device } from '../../utils/devices';
-import ContentImages from './HeroImages';
-import ScrollArrow from './ScrollArrow';
-
+import React from "react";
+import { Link } from 'gatsby'
+import styled from "styled-components";
+import Typewriter from "typewriter-effect";
+import { device } from "../../utils/devices";
+import Navigation from "../../components/navigation";
+import ContentImages from "./HeroImages";
+import ScrollArrow from "./ScrollArrow";
 
 const Wrapper = styled.div`
   background: #252835;
@@ -13,12 +14,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-const Navigation = styled.div`
-  width: 100%;
-  background: white;
-  color: #000;
 `;
 
 const ContentWrapper = styled.div`
@@ -61,7 +56,7 @@ const LeftColumn = styled(Column)`
 const RightColumn = styled(Column)`
   width: 100%;
   justify-content: center;
-  
+
   @media ${device.laptop} {
     width: 70%;
     justify-content: normal;
@@ -110,9 +105,6 @@ const ImagesWrapper = styled.div`
 `;
 
 
-
-//NOTE: Do nav on top content 
-
 const HeroDescription = () => (
   <Typewriter
     onInit={(typewriter) => {
@@ -132,14 +124,11 @@ const HeroDescription = () => (
   />
 );
 
-
 const Hero = () => {
   return (
     <Wrapper>
-      <Navigation>
-        <h1> HELLO </h1>
-      </Navigation>
-      
+      <Navigation />
+
       <ContentWrapper>
         <LeftColumn>
           <TitleWrapper>
@@ -160,6 +149,6 @@ const Hero = () => {
       <ScrollArrow />
     </Wrapper>
   );
-}
+};
 
 export default Hero;

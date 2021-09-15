@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import merge from 'lodash/merge';
 import find from 'lodash/find';
-import { image } from '../images/Images';
+import { image } from '../../components/images/Images';
 
 
 const ImageStyles = styled.img`
