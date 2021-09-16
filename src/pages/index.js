@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import App from "./App";
 import "../styles/index.css";
 
-const IndexPage = () => (
+const IndexPage = ({ location }) => (
   <>
     <Helmet>
       <meta charSet="utf-8" />
@@ -12,7 +12,7 @@ const IndexPage = () => (
       <meta name="description" content="Portfolio built using Gatsby" />
     </Helmet>
 
-    <App />
+    <App location={location} />
   </>
 );
 
