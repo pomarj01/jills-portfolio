@@ -1,14 +1,12 @@
 import React from "react";
-import { Link } from 'gatsby'
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import { device } from "../../utils/devices";
+import { device } from "../../utils";
 import Navigation from "../../components/navigation";
 import ContentImages from "./HeroImages";
 import ScrollArrow from "./ScrollArrow";
 
 const Wrapper = styled.div`
-  background: #252835;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -35,7 +33,9 @@ const Column = styled.div`
   .Typewriter {
     font-family: "Cabin", sans-serif;
     font-size: clamp(1.5rem, 0.6429rem + 4.2857vw, 6rem);
+    color: #f0f0f0;
     width: 40%;
+    z-index: 1;
   }
 
   @media ${device.laptop} {
@@ -71,6 +71,7 @@ const TitleWrapper = styled.div`
 const Title = styled.div`
   font-family: "Work Sans", sans-serif;
   font-size: clamp(2rem, 1.2381rem + 3.8095vw, 6rem);
+  color: #f0f0f0;
 `;
 
 const MobileTitle = styled(Title)`
