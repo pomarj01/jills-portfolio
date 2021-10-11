@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { device } from "../../utils/devices";
+import { device } from "../../utils";
 
 const Wrapper = styled.div`
   display: inherit;
@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   justify-content: center;
   padding: 2rem 4rem;
   width: 100%;
+  background: #252835;
 
   @media ${device.laptop} {
     justify-content: flex-end;
@@ -18,10 +19,10 @@ const Wrapper = styled.div`
 const LinksWrapper = styled.ul`
   display: flex;
   list-style-type: none;
+  padding: 0;
 `;
 
 const LinkItem = styled.li`
-
   padding: 0.5rem;
   
   .active {
@@ -52,6 +53,7 @@ const LinkItem = styled.li`
 `;
 
 const LinkStyles = styled(Link)`
+  min-height: 0vw;
   font-size: clamp(1rem, 0.8125rem + 0.8333vw, 1.25rem);
   font-weight: 800;
   color: #f0f0f0;

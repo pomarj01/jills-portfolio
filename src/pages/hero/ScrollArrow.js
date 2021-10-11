@@ -46,6 +46,10 @@ const ScrollWrapper = styled.div`
     animation-delay: -0.4s;
     -webkit-animation-delay: -0.4s;
   }
+
+  span {
+    color: #f0f0f0;
+  }
 `;
 
 
