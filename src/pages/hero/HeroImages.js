@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import merge from 'lodash/merge';
-import find from 'lodash/find';
-import { image } from '../../components/images/Images';
+import { getImageURL } from "../../utils";
 
 
 const ImageStyles = styled.img`
@@ -86,21 +84,18 @@ const imageList = [
   },
 ];
 
-
-const mergedImages = imageList.map((img) => {
-  return merge(img, find(image, { name: img.name }));
-});
+const images = getImageURL(imageList);
 
 
 const ContentImages = () => {
   return (
     <>
-      {mergedImages.map((img, i) => (
+      {images.map((img, i) => (
         <ImageStyles
           key={i}
           className={img.name}
           position={img.position}
-          src={img.value}
+          src={img.url}
           size={img.size}
           top={img.top}
           left={img.left}
