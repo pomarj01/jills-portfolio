@@ -9,57 +9,105 @@ import pink_cross from '../../assets/pink_cross.svg';
 import blue_cross from '../../assets/blue_cross.svg';
 import dots_oblong from '../../assets/dots.svg';
 import zigzag from '../../assets/zigzag.svg';
+import dev_illustration from '../../assets/dev_illustration.svg';
+import dev_illustration2 from '../../assets/dev_illustration2.svg';
+import des_illustration from '../../assets/des_illustration.svg';
+import des_monitor from "../../assets/design_monitor.svg";
+import dev_monitor from "../../assets/dev_monitor.svg";
+import cloud from "../../assets/cloud.svg";
+import splash from "../../assets/splash.svg";
 
+import oblongs from "../../assets/oblongs.svg";
+import eclipses from "../../assets/eclipses.svg";
+import big_waves from "../../assets/big_waves.svg";
+import waitron_dashboard from "../../assets/waitron_dashboard.png";
+import fb_landing from "../../assets/fb_landing.png";
+import fb_register from "../../assets/fb_register.png";
 
-const image = [
+const images = [
   {
     name: "main_image",
-    value: `${webd}`,
+    url: `${webd}`,
   },
   {
     name: "vertical_crosses",
-    value: `${vertical_crosses}`,
+    url: `${vertical_crosses}`,
   },
   {
     name: "double_waves",
-    value: `${double_waves}`,
+    url: `${double_waves}`,
   },
   {
     name: "lined_circle",
-    value: `${lined_circle}`,
+    url: `${lined_circle}`,
   },
   {
     name: "rounded_wave",
-    value: `${rounded_wave}`,
+    url: `${rounded_wave}`,
   },
   {
     name: "tiny_circles",
-    value: `${tiny_circles}`,
+    url: `${tiny_circles}`,
   },
   {
     name: "circles",
-    value: `${circles}`,
+    url: `${circles}`,
   },
   {
     name: "pink_cross",
-    value: `${pink_cross}`,
+    url: `${pink_cross}`,
   },
   {
     name: "blue_cross",
-    value: `${blue_cross}`,
+    url: `${blue_cross}`,
   },
   {
     name: "dots_oblong",
-    value: `${dots_oblong}`,
+    url: `${dots_oblong}`,
   },
   {
     name: "zigzag",
-    value: `${zigzag}`,
+    url: `${zigzag}`,
   },
-
+  {
+    name: "dev_illustration",
+    url: `${dev_illustration}`,
+  },
+  {
+    name: "dev_illustration2",
+    url: `${dev_illustration2}`,
+  },
+  {
+    name: "des_illustration",
+    url: `${des_illustration}`,
+  },
+  {
+    name: "oblongs",
+    url: `${oblongs}`,
+  },
+  {
+    name: "eclipses",
+    url: `${eclipses}`,
+  },
+  {
+    name: "waitron_dashboard",
+    url: `${waitron_dashboard}`,
+  },
+  {
+    name: "big_waves",
+    url: `${big_waves}`,
+  },
+  {
+    name: "fb_landing",
+    url: `${fb_landing}`,
+  },
+  {
+    name: "fb_register",
+    url: `${fb_register}`,
+  },
 ];
 
 
 export {
-  image,
+  images,
 };
