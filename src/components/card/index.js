@@ -15,7 +15,7 @@ const CardContent = styled.div`
   border-radius: 5px;
 
   @media ${device.laptop} {
-    padding: 4rem;
+    padding: 4rem 2rem;
     width: 60%;
   }
 `;
@@ -40,7 +40,7 @@ const Header = styled.h2`
 
 const CardDescription = styled.div`
   display: flex;
-  padding: 0;
+  padding: 0 1rem;
   text-align: center;
   order: 1;
 
@@ -90,7 +90,6 @@ const CardMedia = styled.div`
 
   @media ${device.tablet} {
     order: 0;
-    padding: 1rem 2rem;
   }
 `;
 
@@ -139,6 +138,8 @@ const Divider = styled.span`
 const Card = (props) => {
   const { background, header, description, tags, tagsColor, images, cta, ctaContent } = props;
 
+  const page = header.toLowerCase()
+
   return (
     <CardContent background={background}>
       <CardHeader>
@@ -167,11 +168,7 @@ const Card = (props) => {
       <Divider />
 
       {cta && (
-        <>
-          <Button variant="secondary" label={ctaContent} device="xsmallUp" />
-          <Button variant="secondary" label={ctaContent} device="largeUp" />
-          <Button variant="primary" disabled label="Disabled" />
-        </>
+        <Button variant="primary" label={ctaContent} to={page}/>
       )}
     </CardContent>
   );
