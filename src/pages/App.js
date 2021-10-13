@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../utils';
 import Hero from './hero';
 import About from './about';
 import Projects from './projects';
@@ -9,11 +11,13 @@ const Wrapper = styled.div`
 `;
 
 const App = ({ location }) => (
-  <Wrapper>
-    <Hero location={location} />
-    <About location={location} />
-    <Projects location={location} />
-  </Wrapper>
+  <ThemeProvider theme={theme}>
+    <Wrapper>
+      <Hero location={location} />
+      <About location={location} />
+      <Projects location={location} />
+    </Wrapper>
+  </ThemeProvider>
   );
 
 export default App;

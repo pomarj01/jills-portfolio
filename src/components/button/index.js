@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import styled, { css, ThemeProvider } from "styled-components";
+import styled, { css } from "styled-components";
 import { device, theme } from "../../utils";
 
 const complexDisplay = css`
@@ -26,7 +26,7 @@ const complexDisplay = css`
 `;
 
 const BaseButton = styled.button`
-  ${(props) => console.log(props) || (props.hidden ? complexDisplay : "display: flex")};
+  ${(props) => (props.hidden ? complexDisplay : "display: flex")};
   justify-content: center;
   align-items: center;
   padding: ${theme.space[4]} ${theme.space[5]};
@@ -58,13 +58,9 @@ const BaseButton = styled.button`
 `;
 
 
-const Button = ({ variant, disabled, device, label }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <BaseButton variant={variant} disabled={disabled} hidden={device}>{label}</BaseButton>
-    </ThemeProvider>
-  );
-};
+const Button = ({ variant, disabled, device, label }) => (
+  <BaseButton variant={variant} disabled={disabled} hidden={device}>{label}</BaseButton>
+);
 
 BaseButton.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary"]),
