@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Navigation from "../../components/navigation";
 import Card from "../../components/card";
-import { getImageURL, device } from "../../utils";
+import { shapes, images, icons } from './media'
+import { device } from "../../utils";
 
 const Wrapper = styled.div`
   background: #f5f5f5;
@@ -95,75 +96,8 @@ const CardWrapper = styled.div`
 `;
 
 
-const renderShapes = [
-  { name: "oblongs" },
-  { name: "eclipses" },
-  { name: "big_waves" },
-  { name: "double_waves" },
-  { name: "square_dots" },
-  { name: "triangle_circle" },
-  { name: "circledLines_dots" },
-];
-
-const renderImages = [
-  { name: "waitron_dashboard" },
-  { name: "fb_landing" },
-  { name: "fb_register" },
-  { name: "heattech" },
-  { name: "heattech_2" },
-];
-
-const renderIcons = [
-  { name: "monitor" },
-  { name: "palette" },
-  { name: "pen" },
-  { name: "vector" },
-  { name: "wireframe" },
-  { name: "ab_testing" },
-  { name: "cloud" },
-  { name: "github" },
-  { name: "js" },
-  { name: "vscode" },
-];
-
-const CustomCard = styled(Card)`
-  background: green;
-`
-
-
 const Projects = ({ location }) => {
-  const hideNav = location.pathname === "/";
-  const shapes = getImageURL(renderShapes);
-  const images = getImageURL(renderImages);
-  const icons = getImageURL(renderIcons);
-
-  const setOfShapes = new Map();
-  setOfShapes.set(shapes[0].name, shapes[0].url);
-  setOfShapes.set(shapes[1].name, shapes[1].url);
-  setOfShapes.set(shapes[2].name, shapes[2].url);
-  setOfShapes.set(shapes[3].name, shapes[3].url);
-  setOfShapes.set(shapes[4].name, shapes[4].url);
-  setOfShapes.set(shapes[5].name, shapes[5].url);
-  setOfShapes.set(shapes[6].name, shapes[6].url);
-
-  const setOfImages = new Map();
-  setOfImages.set(images[0].name, images[0].url);
-  setOfImages.set(images[1].name, images[1].url);
-  setOfImages.set(images[2].name, images[2].url);
-  setOfImages.set(images[3].name, images[3].url);
-  setOfImages.set(images[4].name, images[4].url);
-
-  const setOfIcons = new Map();
-  setOfIcons.set(icons[0].name, icons[0].url);
-  setOfIcons.set(icons[1].name, icons[1].url);
-  setOfIcons.set(icons[2].name, icons[2].url);
-  setOfIcons.set(icons[3].name, icons[3].url);
-  setOfIcons.set(icons[4].name, icons[4].url);
-  setOfIcons.set(icons[5].name, icons[5].url);
-  setOfIcons.set(icons[6].name, icons[6].url);
-  setOfIcons.set(icons[7].name, icons[7].url);
-  setOfIcons.set(icons[8].name, icons[8].url);
-  setOfIcons.set(icons[9].name, icons[9].url);
+  const hideNav = location.pathname === "/"; 
 
   return (
     <Wrapper>
@@ -173,7 +107,7 @@ const Projects = ({ location }) => {
 
       <Content>
         <Project>
-          <OblongsStyles src={setOfShapes.get("oblongs")} />
+          <OblongsStyles src={shapes("oblongs")} />
           <CardWrapper>
             <Card
               background="#ddebf4"
@@ -181,16 +115,16 @@ const Projects = ({ location }) => {
               description="An ordering system web app aimed to be used by local pubs. Designed both admin and user side of the app. The admin side was targeted on tablet devices while for the customer side was on mobile."
               tags={["Design", "Figma"]}
               tagsColor="#adc8d9"
-              media={[setOfImages.get("waitron_dashboard")]}
+              media={[images("waitron_dashboard")]}
               mediaSize="30rem"
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <EclipsesStyles src={setOfShapes.get("eclipses")} />
+          <EclipsesStyles src={shapes("eclipses")} />
         </Project>
 
         <Project>
-          <BigWavesStyles src={setOfShapes.get("big_waves")} />
+          <BigWavesStyles src={shapes("big_waves")} />
           <CardWrapper>
             <Card
               background="#E5F0EF"
@@ -207,8 +141,8 @@ const Projects = ({ location }) => {
               ]}
               tagsColor="#ADCCC9"
               media={[
-                setOfImages.get("fb_landing"),
-                setOfImages.get("fb_register"),
+                images("fb_landing"),
+                images("fb_register"),
               ]}
               mediaSize="20rem"
               ctaContent="Full Project"
@@ -217,7 +151,7 @@ const Projects = ({ location }) => {
         </Project>
 
         <Project>
-          <DoubleWavesStyles src={setOfShapes.get("double_waves")} />
+          <DoubleWavesStyles src={shapes("double_waves")} />
           <CardWrapper>
             <Card
               background="#EEDFDC"
@@ -226,37 +160,36 @@ const Projects = ({ location }) => {
               tags={["Design", "Figma"]}
               tagsColor="#DDC1BB"
               media={[
-                setOfImages.get("heattech"),
-                setOfImages.get("heattech_2"),
+                images("heattech"),
+                images("heattech_2"),
               ]}
               mediaSize="260px"
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <SquareDotsStyles src={setOfShapes.get("square_dots")} />
+          <SquareDotsStyles src={shapes("square_dots")} />
         </Project>
 
         <Project>
-          <TriangleCircleStyles src={setOfShapes.get("triangle_circle")} />
+          <TriangleCircleStyles src={shapes("triangle_circle")} />
           <CardWrapper>
             <Card
-              customCard
               background="#F6EDD3"
               header="Icon Designs"
               description="A collection of icons ranging from outline to filled icons. These icons were created using the easiest styles such as basic shapes and lines and incoroporated colours using Figma."
               tags={["Design", "Figma"]}
               tagsColor="#E5CB80"
               media={[
-                setOfIcons.get("monitor"),
-                setOfIcons.get("palette"),
-                setOfIcons.get("pen"),
-                setOfIcons.get("vector"),
-                setOfIcons.get("wireframe"),
-                setOfIcons.get("vscode"),
-                setOfIcons.get("js"),
-                setOfIcons.get("cloud"),
-                setOfIcons.get("ab_testing"),
-                setOfIcons.get("github"),
+                icons("monitor"),
+                icons("palette"),
+                icons("pen"),
+                icons("vector"),
+                icons("wireframe"),
+                icons("vscode"),
+                icons("js"),
+                icons("cloud"),
+                icons("ab_testing"),
+                icons("github"),
               ]}
               mediaSize="64px"
               mediaStyles={{
@@ -267,7 +200,7 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <CircledLinesDotsStyles src={setOfShapes.get("circledLines_dots")} />
+          <CircledLinesDotsStyles src={shapes("circledLines_dots")} />
         </Project>
       </Content>
     </Wrapper>
@@ -275,6 +208,3 @@ const Projects = ({ location }) => {
 };
 
 export default Projects;
-
-
-// NOTE: clean up card component
