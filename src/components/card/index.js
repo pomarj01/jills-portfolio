@@ -4,13 +4,13 @@ import styled from "styled-components";
 import Button from "../button";
 import { device } from "../../utils";
 
-const CardContent = styled.div`
+const DefaultCard = styled.div`
   background: ${(props) => props.background};
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 2rem;
-  padding: 2rem 1rem;
+  padding: 1rem;
   width: 100%;
   border-radius: 5px;
 
@@ -24,7 +24,7 @@ const CardHeader = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 0;
+  padding: 1rem 0;
 
   @media ${device.tablet} {
     padding: 1rem;
@@ -34,22 +34,17 @@ const CardHeader = styled.div`
 
 const Header = styled.h2`
   min-height: 0vw;
-  font-size: clamp(1rem, 0.25rem + 3.3333vw, 2rem);
+  font-size: clamp(1.25rem, 0.25rem + 3.3333vw, 2rem);
   font-weight: 700;
 `;
 
 const CardDescription = styled.div`
   display: flex;
-  padding: 0 1rem;
+  padding: 1rem;
   text-align: center;
-  order: 1;
 
   @media ${device.laptop} {
     padding: 1rem 4rem;
-  }
-
-  @media ${device.tablet} {
-    order: 0;
   }
 `;
 
@@ -86,27 +81,28 @@ const CardMedia = styled.div`
   justify-content: center;
   width: 100%;
   padding: 1rem;
-  order: 0;
-
-  @media ${device.tablet} {
-    order: 0;
-  }
+  ${(props) => props.background !== 'none' ? `background: ${props.background}` : ''};
 `;
 
-const Image = styled.img`
-  max-width: 400px;
-  width: 100%;
-  border-radius: 5px;
-  margin: 1rem;
-  box-shadow: 0px 50px 100px rgba(92, 99, 105, 0.15);
 
-  &:nth-child(2) {
+const Image = styled.img`
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 50px 100px rgba(92, 99, 105, 0.15);
+  margin-left: 0.5rem;
+
+  &:not(:first-child) {
     display: none;
   }
-  
+
   @media ${device.tablet} {
-    &:nth-child(2) {
-      display: block;
+    & {
+      width: ${(props) => (props.size ? `${props.size}` : "100%")};
+    }
+
+    &:not(:first-child) {
+      display: flex;
     }
   }
 `;
@@ -129,19 +125,31 @@ const Divider = styled.span`
 //     : str;
 // }
 
-
-// NOTE::create button component
+// NOTE: Refactor this card component to make it more flexuble in the future
 // NOTE: use regex to get the first sentence on card description
+ 
 
+const BaseCard = (props) => {
+  const {
+    background,
+    header,
+    description,
+    tags,
+    tagsColor,
+    media,
+    mediaBackground,
+    mediaSize,
+    mediaWrapperStyles,
+    imageStyles,
+    cta,
+    ctaContent,
+    ctaDisabledButton,
+    ctaOnClick
+  } = props;
 
-
-const Card = (props) => {
-  const { background, header, description, tags, tagsColor, images, cta, ctaContent } = props;
-
-  const page = header.toLowerCase()
 
   return (
-    <CardContent background={background}>
+    <DefaultCard background={background}>
       <CardHeader>
         <Header>{header || "Title not provided"}</Header>
       </CardHeader>
@@ -159,33 +167,41 @@ const Card = (props) => {
           ))}
       </CardTags>
 
-      <CardMedia>
-        {(images && images.map((img, i) => <Image src={img} key={i} />)) || (
-          <span>Image not provided</span>
-        )}
+      <CardMedia background={mediaBackground} style={mediaWrapperStyles}>
+        {(media &&
+          media.map((img, i) => (
+            <Image src={img} key={i} size={mediaSize} style={imageStyles} />
+          ))) || <span>Image not provided</span>}
       </CardMedia>
 
-      <Divider />
-
       {cta && (
-        <Button variant="primary" label={ctaContent} to={page}/>
+        <Button
+          variant="primary"
+          label={ctaContent}
+          disabled={ctaDisabledButton}
+          onClick={ctaOnClick}
+        />
       )}
-    </CardContent>
+    </DefaultCard>
   );
 };
 
-Card.propTypes = {
+BaseCard.propTypes = {
   background: PropTypes.string,
   header: PropTypes.string,
   description: PropTypes.string,
   tagsColor: PropTypes.string,
   tags: PropTypes.array,
-  images: PropTypes.array,
+  media: PropTypes.array,
+  mediaBackground: PropTypes.string,
+  mediaSize: PropTypes.string,
   cta: PropTypes.bool,
 };
 
-Card.defaultProps = {
+BaseCard.defaultProps = {
+  mediaSize: "100%",
+  mediaBackground: "none",
   cta: true,
 };
 
-export default Card;
+export default BaseCard ;
