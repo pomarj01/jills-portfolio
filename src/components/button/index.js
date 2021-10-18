@@ -58,12 +58,32 @@ const BaseButton = styled.button`
 `;
 
 
-const Button = ({ variant, disabled, device, label }) => (
-  <BaseButton variant={variant} disabled={disabled} hidden={device}>{label}</BaseButton>
-);
+const Button = ({ children, label, variant, onClick, disabled, device  }) => {
+
+  const renderChildren = () => {
+    if (label) return label;
+    if (children) return children;
+
+    return 'Button';
+  };
+
+  const handleOnClick = (event) => {
+    if (disabled) return;
+
+    onClick &&
+      onClick({ event});
+  };
+
+  return (
+    <BaseButton variant={variant} disabled={disabled} hidden={device} onClick={handleOnClick}>
+      {renderChildren()}
+    </BaseButton>
+  );
+};
 
 BaseButton.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary"]),
+  label: PropTypes.string,
   disabled: PropTypes.bool,
   hidden: PropTypes.string,
   children: PropTypes.node.isRequired,
@@ -71,6 +91,7 @@ BaseButton.propTypes = {
 
 BaseButton.defaultProps = {
   variant: "primary",
+  label: '',
   hidden: '',
   disabled: false,
 };
