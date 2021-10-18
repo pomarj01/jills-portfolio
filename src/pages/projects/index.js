@@ -78,6 +78,12 @@ const SquareDotsStyles = styled(Shapes)`
   width: 5%;
 `;
 
+const FilledOblongsStyles = styled(Shapes)`
+  right: 0;
+  bottom: 20%;
+  width: 8%;
+`;
+
 const TriangleCircleStyles = styled(Shapes)`
   left: 15%;
   top: 0%;
@@ -140,10 +146,7 @@ const Projects = ({ location }) => {
                 "Node.js",
               ]}
               tagsColor="#ADCCC9"
-              media={[
-                images("fb_landing"),
-                images("fb_register"),
-              ]}
+              media={[images("fb_landing"), images("fb_register")]}
               mediaSize="20rem"
               ctaContent="Full Project"
             />
@@ -159,15 +162,13 @@ const Projects = ({ location }) => {
               description="A simple and straight forward website for a plumbing and repair services company which only provides information, fetaures and contact details of the company. Only created designs for mobile view using Figma."
               tags={["Design", "Figma"]}
               tagsColor="#DDC1BB"
-              media={[
-                images("heattech"),
-                images("heattech_2"),
-              ]}
+              media={[images("heattech"), images("heattech_2")]}
               mediaSize="260px"
               ctaContent="Full Project"
             />
           </CardWrapper>
           <SquareDotsStyles src={shapes("square_dots")} />
+          <FilledOblongsStyles src={shapes("filled_oblongs")} />
         </Project>
 
         <Project>
@@ -190,11 +191,25 @@ const Projects = ({ location }) => {
                 icons("cloud"),
                 icons("ab_testing"),
                 icons("github"),
+                icons("planet"),
+                icons("paint_roller"),
+                icons("spaceship"),
+                icons("letterJ"),
+                icons("letterP"),
               ]}
               mediaSize="64px"
-              mediaStyles={{
+              mediaWrapperStyles={{
                 flexWrap: "wrap",
+                margin: "1rem 0",
+                maxWidth: "450px",
+                height: "280px",
+                justifyContent: "space-around",
+                alignContent: "space-around",
+              }}
+              imageStyles={{
                 boxShadow: "none",
+                display: "flex",
+                width: "16%",
               }}
               mediaBackground="#fff"
               ctaContent="Full Project"

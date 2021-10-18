@@ -10,6 +10,7 @@ const renderShapes = [
   { name: "big_waves" },
   { name: "double_waves" },
   { name: "square_dots" },
+  { name: "filled_oblongs" },
   { name: "triangle_circle" },
   { name: "circledLines_dots" },
 ];
@@ -33,6 +34,11 @@ const renderIcons = [
   { name: "github" },
   { name: "js" },
   { name: "vscode" },
+  { name: "planet" },
+  { name: "paint_roller" },
+  { name: "spaceship" },
+  { name: "letterJ" },
+  { name: "letterP" },
 ];
 
 export const shapes = (shape) => {
@@ -46,6 +52,7 @@ export const shapes = (shape) => {
   setOfShapes.set(list[4].name, list[4].url);
   setOfShapes.set(list[5].name, list[5].url);
   setOfShapes.set(list[6].name, list[6].url);
+  setOfShapes.set(list[7].name, list[7].url);
 
   return setOfShapes.get(shape);
 };
@@ -77,6 +84,11 @@ export const icons = (icon) => {
   setOfIcons.set(list[7].name, list[7].url);
   setOfIcons.set(list[8].name, list[8].url);
   setOfIcons.set(list[9].name, list[9].url);
+  setOfIcons.set(list[10].name, list[10].url);
+  setOfIcons.set(list[11].name, list[11].url);
+  setOfIcons.set(list[12].name, list[12].url);
+  setOfIcons.set(list[13].name, list[13].url);
+  setOfIcons.set(list[14].name, list[14].url);
 
   return setOfIcons.get(icon);
 };
