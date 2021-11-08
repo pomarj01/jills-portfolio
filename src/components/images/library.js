@@ -21,24 +21,37 @@ const renderImages = [
   { name: "fb_register" },
   { name: "heattech" },
   { name: "heattech_2" },
+  { name: "dev_illustration" },
+  { name: "des_illustration" },
+  { name: "dev_monitor" },
+  { name: "des_monitor" },
 ];
 
 const renderIcons = [
-  { name: "monitor" },
-  { name: "palette" },
-  { name: "pen" },
-  { name: "vector" },
-  { name: "wireframe" },
-  { name: "ab_testing" },
-  { name: "cloud" },
-  { name: "github" },
-  { name: "js" },
-  { name: "vscode" },
+  { name: "monitor_dark" },
+  { name: "palette_dark" },
+  { name: "pen_dark" },
+  { name: "vector_dark" },
+  { name: "wireframe_dark" },
+  { name: "ab_testing_light" },
+  { name: "ab_testing_dark" },
+  { name: "cloud_dark" },
+  { name: "github_dark" },
+  { name: "js_dark" },
+  { name: "js_light" },
+  { name: "code_dark" },
   { name: "planet" },
   { name: "paint_roller" },
   { name: "spaceship" },
   { name: "letterJ" },
   { name: "letterP" },
+  { name: "browser_light" },
+  { name: "html_light" },
+  { name: "css_light" },
+  { name: "ruler_dark" },
+  { name: "grid_dark" },
+  { name: "crop_dark" },
+  { name: "scale_dark" },
 ];
 
 export const shapes = (shape) => {
@@ -66,6 +79,10 @@ export const images = (image) => {
   setOfImages.set(list[2].name, list[2].url);
   setOfImages.set(list[3].name, list[3].url);
   setOfImages.set(list[4].name, list[4].url);
+  setOfImages.set(list[5].name, list[5].url);
+  setOfImages.set(list[6].name, list[6].url);
+  setOfImages.set(list[7].name, list[7].url);
+  setOfImages.set(list[8].name, list[8].url);
 
   return setOfImages.get(image);
 };
@@ -89,6 +106,16 @@ export const icons = (icon) => {
   setOfIcons.set(list[12].name, list[12].url);
   setOfIcons.set(list[13].name, list[13].url);
   setOfIcons.set(list[14].name, list[14].url);
+  setOfIcons.set(list[15].name, list[15].url);
+  setOfIcons.set(list[16].name, list[16].url);
+  setOfIcons.set(list[17].name, list[17].url);
+  setOfIcons.set(list[18].name, list[18].url);
+  setOfIcons.set(list[19].name, list[19].url);
+  setOfIcons.set(list[20].name, list[20].url);
+  setOfIcons.set(list[21].name, list[21].url);
+  setOfIcons.set(list[22].name, list[22].url);
+  setOfIcons.set(list[23].name, list[23].url);
+
 
   return setOfIcons.get(icon);
 };
