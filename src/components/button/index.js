@@ -41,11 +41,12 @@ const BaseButton = styled.button`
   border-color: ${theme.colors.primary};
   border-radius: ${theme.radii.base};
   font-weight: ${theme.fontWeights.bold};
+  color: ${theme.colors.dark};
 
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus {
-    color: ${theme.colors.background};
+    color: ${theme.colors.light};
     border-color: ${theme.colors.accent};
     background-color: ${theme.colors.accent};
   }

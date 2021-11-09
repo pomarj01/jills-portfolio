@@ -1,16 +1,15 @@
 import merge from "lodash/merge";
 import find from "lodash/find";
-import { images } from "../components/images/Images";
+import { images } from "../components/images/collection";
 
 
 export const theme = {
   colors: {
-    text: "#252835",
-    background: "#f0f0f0",
+    dark: "#252835",
+    light: "#f0f0f0",
     primary: "#d9bdc7",
     secondary: "transparent",
     accent: "#dda3b8",
-    muted: "#efefef",
   },
   space: [
     0,
