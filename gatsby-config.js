@@ -1,23 +1,31 @@
 module.exports = {
   siteMetadata: {
-    title: "Jill Pomares's Portfolio",
+    title: "Jill Pomares",
+    description: "A front-end web developer who builds websites and at the same time enjoy designing too.",
+    author: "@jillpomares",
     navLinks: [
       {
-        name: "Home",
-        link: "/",
+        name: "About",
+        link: "/about",
       },
       {
-        name: "About",
-        link: "/dev",
+        name: "My Skills",
+        link: "/skills",
       },
       {
         name: "Projects",
-        link: "/projects"
+        link: "/projects",
       },
     ],
   },
   plugins: [
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-react-helmet"
+    "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-styled-components",
+      options: {
+        // displayName: false,
+        // fileName: false,
+      },
+    },
   ],
 };

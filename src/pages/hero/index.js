@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
 import { device } from "../../utils";
-import Navigation from "../../components/navigation";
 import ContentImages from "./HeroImages";
 import ScrollArrow from "./ScrollArrow";
 
@@ -11,7 +10,7 @@ const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const ContentWrapper = styled.div`
@@ -128,8 +127,6 @@ const HeroDescription = () => (
 const Hero = () => {
   return (
     <Wrapper>
-      <Navigation />
-
       <ContentWrapper>
         <LeftColumn>
           <TitleWrapper>
