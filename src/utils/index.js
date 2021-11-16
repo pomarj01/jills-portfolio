@@ -16,7 +16,11 @@ export const theme = {
     "0.125rem", // 2px
     "0.25rem", // 4px
     "0.5rem", // 8px
+    "0.875rem", // 14px
     "1rem", // 16px
+    "1.125rem", // 18px
+    "1.25rem", // 20px
+    "1.5rem", // 24px
     "2rem", // 32px
     "4rem", // 64px
     "8rem", // 128px
