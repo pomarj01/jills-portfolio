@@ -91,7 +91,26 @@ const DesignBox = styled(Box)`
 
 const Title = styled.div`
   font-size: clamp(1.5rem, -0.5rem + 6.6667vw, 2.5rem);
+  // font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
   font-weight: 700;
+
+  a {
+    svg {
+      opacity: 0;
+      transform: translateX(-40%);
+      transition: 300ms ease-out;
+    }
+
+    &:hover {
+      color: ${theme.colors.accent};
+
+      svg {
+        opacity: 1;
+        padding-left: 10px;
+        transform: translateX(12px);
+      }
+    }
+  }
 `;
 
 const DevTitle = styled(Title)`
@@ -110,6 +129,17 @@ const DesignTitle = styled(Title)`
 
   a {
     color: ${theme.colors.dark};
+
+    &:hover {
+      color: ${theme.colors.dark};
+
+    }
+
+    svg {
+      &:hover {
+        color: ${theme.colors.dark};
+      }
+    }
   }
 `;
 
@@ -506,7 +536,18 @@ const About = ({ location }) => {
         <Container>
           <DevBox>
             <DevTitle>
-              <Link to="/about/development">Development</Link>
+              <Link to="/about/development">
+                Development
+                <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+                  <path
+                    d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+                    stroke="#CEACB7"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
             </DevTitle>
 
             <DevImageWrapper className="illustration_wrapper">
@@ -593,7 +634,18 @@ const About = ({ location }) => {
 
           <DesignBox>
             <DesignTitle>
-              <Link to="/about/design">Design</Link>
+              <Link to="/about/design">
+                Design
+                <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+                  <path
+                    d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+                    stroke="#252835"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
             </DesignTitle>
 
             <DesignImageWrapper className="illustration_wrapper">
