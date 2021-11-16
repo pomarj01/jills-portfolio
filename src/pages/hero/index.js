@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 const ContentWrapper = styled.div`
   display: inherit;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;

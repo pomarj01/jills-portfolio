@@ -55,7 +55,7 @@ const LinkItem = styled.li`
 
 const LinkStyles = styled(Link)`
   min-height: 0vw;
-  font-size: clamp(1rem, 0.8125rem + 0.8333vw, 1.25rem);
+  font-size: clamp(1rem, 0.8125rem + 0.8333vw, 1.05rem);
   font-weight: 800;
   position: relative;
   padding: 1rem;

@@ -14,7 +14,7 @@ const App = ({ location }) => (
   <ThemeProvider theme={theme}>
     <Wrapper>
       <Header>
-        <Hero location={location} />
+        <Hero />
         <About location={location} />
         <Projects location={location} />
       </Header>
