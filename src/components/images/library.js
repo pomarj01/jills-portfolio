@@ -13,9 +13,13 @@ const renderShapes = [
   { name: "filled_oblongs" },
   { name: "triangle_circle" },
   { name: "circledLines_dots" },
+  { name: "double_chevrons" },
+  { name: "rounded_wave" },
+  { name: "multiple_shapes" },
 ];
 
 const renderImages = [
+  { name: "logo" },
   { name: "waitron_dashboard" },
   { name: "fb_landing" },
   { name: "fb_register" },
@@ -25,6 +29,8 @@ const renderImages = [
   { name: "des_illustration" },
   { name: "dev_monitor" },
   { name: "des_monitor" },
+  { name: "full_dev_illustration" },
+  { name: "full_des_illustration" },
 ];
 
 const renderIcons = [
@@ -36,7 +42,9 @@ const renderIcons = [
   { name: "ab_testing_light" },
   { name: "ab_testing_dark" },
   { name: "cloud_dark" },
+  { name: "cloud_light" },
   { name: "github_dark" },
+  { name: "github_light" },
   { name: "js_dark" },
   { name: "js_light" },
   { name: "code_dark" },
@@ -48,10 +56,16 @@ const renderIcons = [
   { name: "browser_light" },
   { name: "html_light" },
   { name: "css_light" },
+  { name: "taskboard_light" },
+  { name: "ci_cd_light" },
+  { name: "database_light" },
+  { name: "terminal_light" },
+  { name: "code_light" },
   { name: "ruler_dark" },
   { name: "grid_dark" },
   { name: "crop_dark" },
   { name: "scale_dark" },
+  { name: "typography_dark" },
 ];
 
 export const shapes = (shape) => {
@@ -66,6 +80,9 @@ export const shapes = (shape) => {
   setOfShapes.set(list[5].name, list[5].url);
   setOfShapes.set(list[6].name, list[6].url);
   setOfShapes.set(list[7].name, list[7].url);
+  setOfShapes.set(list[8].name, list[8].url);
+  setOfShapes.set(list[9].name, list[9].url);
+  setOfShapes.set(list[10].name, list[10].url);
 
   return setOfShapes.get(shape);
 };
@@ -83,6 +100,9 @@ export const images = (image) => {
   setOfImages.set(list[6].name, list[6].url);
   setOfImages.set(list[7].name, list[7].url);
   setOfImages.set(list[8].name, list[8].url);
+  setOfImages.set(list[9].name, list[9].url);
+  setOfImages.set(list[10].name, list[10].url);
+  setOfImages.set(list[11].name, list[11].url);
 
   return setOfImages.get(image);
 };
@@ -115,7 +135,14 @@ export const icons = (icon) => {
   setOfIcons.set(list[21].name, list[21].url);
   setOfIcons.set(list[22].name, list[22].url);
   setOfIcons.set(list[23].name, list[23].url);
-
+  setOfIcons.set(list[24].name, list[24].url);
+  setOfIcons.set(list[25].name, list[25].url);
+  setOfIcons.set(list[26].name, list[26].url);
+  setOfIcons.set(list[27].name, list[27].url);
+  setOfIcons.set(list[28].name, list[28].url);
+  setOfIcons.set(list[29].name, list[29].url);
+  setOfIcons.set(list[30].name, list[30].url);
+  setOfIcons.set(list[31].name, list[31].url);
 
   return setOfIcons.get(icon);
 };
