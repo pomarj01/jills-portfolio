@@ -57,11 +57,15 @@ const DevBox = styled(Box)`
 
 
 const Title = styled.div`
-  font-size: clamp(1.5rem, -0.5rem + 6.6667vw, 2.5rem);  
+  font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
   font-weight: 700;
 
   a {
-    color: ${theme.colors.light};
+    color: ${theme.colors.dark};
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    z-index: 1;
 
     svg {
       transform: translateX(10px);
@@ -86,7 +90,7 @@ const Content = styled.div`
   color: ${theme.colors.light};
 `;
 
-const ChevronIcon = styled.img`
+const ChevronShape = styled.img`
   width: 36px;
   position: absolute;
   top: 1rem;
@@ -360,7 +364,7 @@ const NavContainer = styled.div`
 
 const Navigation = styled.div`
   position: relative;
-  height: 400px;
+  height: 600px;
   z-index: 2;
 
   &.slanted-left {
@@ -369,7 +373,7 @@ const Navigation = styled.div`
     &::after {
       right: 0;
       border-left: 300px solid transparent;
-      border-bottom: 400px solid #d9bdc7;
+      border-bottom: 600px solid #d9bdc7;
     }
   }
 
@@ -380,25 +384,35 @@ const Navigation = styled.div`
     width: 0;
     height: 0;
   }
-
-  a {
-    color: ${theme.colors.dark};
-    position: absolute;
-    right: 2rem;
-    bottom: 0.5rem;
-    z-index: 1;
-  }
 `;
 
 
 const Development = ({ location }) => {
   return (
-    <Wrapper id="about">
+    <Wrapper>
       <Container>
         <DevBox>
+          <NavContainer>
+            <Navigation className="slanted-left">
+              <Title>
+                <a onClick={() => navigate(-1)}>
+                  Design
+                  <svg width="38" height="18" viewBox="0 0 42 28" fill="none">
+                    <path
+                      d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+                      stroke="#252835"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </a>
+              </Title>
+            </Navigation>
+          </NavContainer>
 
           <Content>
-            <ChevronIcon src={shapes("double_chevrons")} />
+            <ChevronShape src={shapes("double_chevrons")} />
 
             <General>
               <Description>
@@ -598,25 +612,6 @@ const Development = ({ location }) => {
               </Code>
             </IconsWrapper>
           </DevImageWrapper>
-
-          <NavContainer>
-            <Navigation className="slanted-left">
-              <Title>
-                <a onClick={() => navigate(-1)}>
-                  Design
-                  <svg width="40" height="26" viewBox="0 0 42 28" fill="none">
-                    <path
-                      d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
-                      stroke="#252835"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </a>
-              </Title>
-            </Navigation>
-          </NavContainer>
         </DevBox>
       </Container>
     </Wrapper>
