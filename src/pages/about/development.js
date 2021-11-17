@@ -210,7 +210,7 @@ const Browser = styled(Icon)`
   }
 `;
 
-const HTML = styled(Icon)`
+const Html = styled(Icon)`
   top: 30%;
   right: 38%;
   left: 0;
@@ -224,7 +224,7 @@ const HTML = styled(Icon)`
   }
 `;
 
-const CSS = styled(Icon)`
+const Css = styled(Icon)`
   flex-direction: row;
   justify-content: center;
   bottom: 41%;
@@ -241,7 +241,7 @@ const CSS = styled(Icon)`
   }
 `;
 
-const JS = styled(Icon)`
+const JavaScript = styled(Icon)`
   bottom: 22%;
   right: 38%;
   left: 0;
@@ -303,7 +303,7 @@ const Cloud = styled(Icon)`
   }
 `;
 
-const CICD = styled(Icon)`
+const ContIntegration = styled(Icon)`
   flex-direction: row;
   justify-content: center;
   right: 0;
@@ -395,7 +395,7 @@ const Development = ({ location }) => {
           <NavContainer>
             <Navigation className="slanted-left">
               <Title>
-                <a onClick={() => navigate(-1)}>
+                <a onClick={() => navigate('/about/design')}>
                   Design
                   <svg width="38" height="18" viewBox="0 0 42 28" fill="none">
                     <path
@@ -412,7 +412,7 @@ const Development = ({ location }) => {
           </NavContainer>
 
           <Content>
-            <ChevronShape src={shapes("double_chevrons")} />
+            <ChevronShape src={shapes("double_chevrons")} alt="double chevron vector" />
 
             <General>
               <Description>
@@ -440,10 +440,10 @@ const Development = ({ location }) => {
 
           <DevImageWrapper className="illustration_wrapper">
             <IconsWrapper>
-              <DevIllustration src={images("full_dev_illustration")} />
+              <DevIllustration src={images("full_dev_illustration")} alt="full development illustration" />
 
               <ABTest>
-                <img src={icons("ab_testing_light")} />
+                <img src={icons("ab_testing_light")} alt="a/b testing icon" />
                 <svg width="18" height="130" viewBox="0 0 18 130" fill="none">
                   <path
                     d="M9 129V1M9 1H17M9 1H1"
@@ -457,7 +457,7 @@ const Development = ({ location }) => {
               </ABTest>
 
               <Browser>
-                <img src={icons("browser_light")} />
+                <img src={icons("browser_light")} alt="browser icon" />
                 <svg width="159" height="130" viewBox="0 0 159 130" fill="none">
                   <path
                     d="M158 129V49.5C158 45.0817 154.418 41.5 150 41.5H17C12.5817 41.5 9 37.9183 9 33.5V1M9 1H17M9 1H1"
@@ -470,8 +470,8 @@ const Development = ({ location }) => {
                 </svg>
               </Browser>
 
-              <HTML>
-                <img src={icons("html_light")} />
+              <Html>
+                <img src={icons("html_light")} alt="html icon" />
                 <svg width="147" height="46" viewBox="0 0 147 46" fill="none">
                   <path
                     d="M146 44.9998H17C12.5817 44.9998 9 41.4181 9 36.9998V1M9 1H17M9 1H1"
@@ -482,10 +482,10 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-              </HTML>
+              </Html>
 
-              <CSS>
-                <img src={icons("css_light")} />
+              <Css>
+                <img src={icons("css_light")} alt="css icon" />
                 <svg width="191" height="18" viewBox="0 0 191 18" fill="none">
                   <path
                     d="M190 9H90H1M1 9V1M1 9V17"
@@ -496,9 +496,9 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-              </CSS>
+              </Css>
 
-              <JS>
+              <JavaScript>
                 <svg width="146" height="46" viewBox="0 0 146 46" fill="none">
                   <path
                     d="M145 1.00012H17C12.5817 1.00012 8.99997 4.58184 8.99997 9.00012V45M8.99997 45H17M8.99997 45H1"
@@ -509,11 +509,11 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("js_light")} />
-              </JS>
+                <img src={icons("js_light")} alt="javascript icon" />
+              </JavaScript>
 
               <Github>
-                <img src={icons("github_light")} />
+                <img src={icons("github_light")} alt="github icon" />
                 <svg width="118" height="73" viewBox="0 0 118 73" fill="none">
                   <path
                     d="M1 72H101C105.418 72 109 68.4183 109 64V1M109 1H101M109 1H117"
@@ -537,7 +537,7 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("taskboard_light")} />
+                <img src={icons("taskboard_light")} alt="takboard icon" />
               </Taskboard>
 
               <Cloud>
@@ -551,10 +551,10 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("cloud_light")} />
+                <img src={icons("cloud_light")} alt="cloud icon" />
               </Cloud>
 
-              <CICD>
+              <ContIntegration>
                 <svg width="137" height="156" viewBox="0 0 137 156" fill="none">
                   <path
                     d="M1 1H97C101.418 1 105 4.58172 105 9V139C105 143.418 108.582 147 113 147H136M136 147V139M136 147V155"
@@ -565,8 +565,8 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("ci_cd_light")} />
-              </CICD>
+                <img src={icons("ci_cd_light")} alt="ci/cd icon"/>
+              </ContIntegration>
 
               <Database>
                 <svg width="83" height="165" viewBox="0 0 83 165" fill="none">
@@ -579,7 +579,7 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("database_light")} />
+                <img src={icons("database_light")} alt="database icon" />
               </Database>
 
               <Terminal>
@@ -594,7 +594,7 @@ const Development = ({ location }) => {
                   />
                 </svg>
 
-                <img src={icons("terminal_light")} />
+                <img src={icons("terminal_light")} alt="termnial icon" />
               </Terminal>
 
               <Code>
@@ -608,7 +608,7 @@ const Development = ({ location }) => {
                     strokeDasharray="10 10"
                   />
                 </svg>
-                <img src={icons("code_light")} />
+                <img src={icons("code_light")} alt="code icon" />
               </Code>
             </IconsWrapper>
           </DevImageWrapper>

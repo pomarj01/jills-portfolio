@@ -155,7 +155,7 @@ const DesIllustration = styled.img`
   height: 100%;
   max-width: 480px;
   display: flex;
-  margin: auto;
+  margin: -2rem auto auto;
 
   @media ${device.laptop} {
     width: 100%;
@@ -187,7 +187,7 @@ const Icon = styled.div`
 `;
 
 const Ruler = styled(Icon)`
-  top: 8.5%;
+  top: 4.5%;
   left: 5%;
   bottom: 0;
   right: 0;
@@ -204,7 +204,7 @@ const Ruler = styled(Icon)`
 const Scale = styled(Icon)`
   flex-direction: row;
   justify-content: center;
-  top: 32%;
+  top: 30%;
   left: 25%;
   right: 0;
 
@@ -214,7 +214,7 @@ const Scale = styled(Icon)`
 `;
 
 const Crop = styled(Icon)`
-  bottom: 28%;
+  bottom: 30%;
   left: 20%;
   right: 0;
 
@@ -226,7 +226,7 @@ const Crop = styled(Icon)`
 const Grid = styled(Icon)`
   left: 0;
   right: 6%;
-  bottom: -3.5%;
+  bottom: 0.5%;
 
   svg {
     width: 6rem;
@@ -241,7 +241,7 @@ const Grid = styled(Icon)`
 const Pen = styled(Icon)`
   left: 0;
   right: 16%;
-  bottom: -2%;
+  bottom: 2%;
 
   img {
     margin-right: 5rem;
@@ -253,14 +253,14 @@ const Pen = styled(Icon)`
 `;
 
 const Vector = styled(Icon)`
-  top: 6%;
+  top: 2%;
   left: 0;
   bottom: 0;
   right: 10%;
 `;
 
 const Palette = styled(Icon)`
-  top: 18%;
+  top: 14%;
   right: 38%;
   left: 0;
 
@@ -276,7 +276,7 @@ const Palette = styled(Icon)`
 const Wireframe = styled(Icon)`
   flex-direction: row;
   justify-content: center;
-  top: 44%;
+  top: 40%;
   right: 43%;
   left: 0;
 
@@ -286,7 +286,7 @@ const Wireframe = styled(Icon)`
 `;
 
 const Typography = styled(Icon)`
-  bottom: 18%;
+  bottom: 22%;
   right: 38%;
   left: 0;
 
@@ -335,7 +335,7 @@ const Design = () => {
           <NavContainer>
             <Navigation className="slanted-left">
               <Title>
-                <a onClick={() => navigate(-1)}>
+                <a onClick={() => navigate('/about/development')}>
                   <svg width="38" height="18" viewBox="0 0 42 28" fill="none">
                     <path
                       d="M39.5 14H2M2 14L14 2M2 14L14 26"
@@ -358,14 +358,14 @@ const Design = () => {
               showcase this recent skills I’ve developed using mainly Figma.
             </Description>
 
-            <RoundedWaveShape src={shapes("rounded_wave")} />
+            <RoundedWaveShape src={shapes("rounded_wave")} alt="rounded waves vector" />
 
             <Projects>
               <Header>Side projects</Header>
               <Year>2020-Present</Year>
               <List>
-                {sideProjects.map((project) => (
-                  <Item>{project}</Item>
+                {sideProjects.map((project, i) => (
+                  <Item key={i}>{project}</Item>
                 ))}
               </List>
             </Projects>
@@ -378,7 +378,7 @@ const Design = () => {
               <DesIllustration src={images("full_des_illustration")} />
 
               <Ruler>
-                <img src={icons("ruler_dark")} />
+                <img src={icons("ruler_dark")} alt="ruler icon" />
                 <svg width="106" height="83" viewBox="0 0 106 83" fill="none">
                   <path
                     d="M13 48.5C11.3431 48.5 10 49.8431 10 51.5V78C10 80.7614 7.76142 83 5 83C2.23858 83 0 80.7614 0 78V51.5C0 44.3203 5.8203 38.5 13 38.5H27V48.5H13Z"
@@ -409,7 +409,7 @@ const Design = () => {
                   />
                 </svg>
 
-                <img src={icons("scale_dark")} />
+                <img src={icons("scale_dark")} alt="scale icon" />
               </Scale>
 
               <Crop>
@@ -426,7 +426,7 @@ const Design = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <img src={icons("crop_dark")} />
+                <img src={icons("crop_dark")} alt="crop icon" />
               </Crop>
 
               <Grid>
@@ -443,7 +443,7 @@ const Design = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <img src={icons("grid_dark")} />
+                <img src={icons("grid_dark")} alt="grid icon" />
               </Grid>
 
               <Pen>
@@ -460,11 +460,11 @@ const Design = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <img src={icons("pen_dark")} />
+                <img src={icons("pen_dark")} alt="pen icon" />
               </Pen>
 
               <Vector>
-                <img src={icons("vector_dark")} />
+                <img src={icons("vector_dark")} alt="vector icon" />
                 <svg width="18" height="108" viewBox="0 0 18 108" fill="none">
                   <path
                     d="M4 102.643C4 105.602 6.23857 108 9 108C11.7614 108 14 105.602 14 102.643L14 63L4 63L4 102.643Z"
@@ -481,7 +481,7 @@ const Design = () => {
               </Vector>
 
               <Palette>
-                <img src={icons("palette_dark")} />
+                <img src={icons("palette_dark")} alt="palette icon" />
                 <svg width="124" height="67" viewBox="0 0 124 67" fill="none">
                   <path
                     d="M119.276 67C121.885 67 124 64.7614 124 62C124 59.2386 121.885 57 119.276 57H58V67H119.276Z"
@@ -498,7 +498,7 @@ const Design = () => {
               </Palette>
 
               <Wireframe>
-                <img src={icons("wireframe_dark")} />
+                <img src={icons("wireframe_dark")}  alt="wireframe icon" />
                 <svg width="144" height="18" viewBox="0 0 144 18" fill="none">
                   <path
                     d="M139.634 14C142.045 14 144 11.7614 144 9C144 6.23858 142.045 4 139.634 4H83V14H139.634Z"
@@ -528,7 +528,7 @@ const Design = () => {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <img src={icons("typography_dark")} />
+                <img src={icons("typography_dark")} alt="typography icon" />
               </Typography>
             </IconsWrapper>
           </DesImageWrapper>

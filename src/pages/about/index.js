@@ -551,11 +551,11 @@ const About = ({ location }) => {
             </DevTitle>
 
             <DevImageWrapper className="illustration_wrapper">
-              <DevIllustration src={images("dev_illustration")} />
+              <DevIllustration src={images("dev_illustration")} alt="development illustration" />
 
               <IconsWrapper>
                 <ABTest isHomepage={isHomepage}>
-                  <img src={icons("ab_testing_light")} />
+                  <img src={icons("ab_testing_light")} alt="a/b testing icon"/>
                   <svg width="18" height="130" viewBox="0 0 18 130" fill="none">
                     <path
                       d="M9 129V1M9 1H17M9 1H1"
@@ -569,7 +569,7 @@ const About = ({ location }) => {
                 </ABTest>
 
                 <Browser isHomepage={isHomepage}>
-                  <img src={icons("browser_light")} />
+                  <img src={icons("browser_light")} alt="browser icon" />
                   <svg
                     width="159"
                     height="130"
@@ -588,7 +588,7 @@ const About = ({ location }) => {
                 </Browser>
 
                 <HTML isHomepage={isHomepage}>
-                  <img src={icons("html_light")} />
+                  <img src={icons("html_light")} alt="hmtl icon" />
                   <svg width="147" height="46" viewBox="0 0 147 46" fill="none">
                     <path
                       d="M146 44.9998H17C12.5817 44.9998 9 41.4181 9 36.9998V1M9 1H17M9 1H1"
@@ -602,7 +602,7 @@ const About = ({ location }) => {
                 </HTML>
 
                 <CSS isHomepage={isHomepage}>
-                  <img src={icons("css_light")} />
+                  <img src={icons("css_light")} alt="css icon" />
                   <svg width="191" height="18" viewBox="0 0 191 18" fill="none">
                     <path
                       d="M190 9H90H1M1 9V1M1 9V17"
@@ -626,7 +626,7 @@ const About = ({ location }) => {
                       strokeDasharray="10 10"
                     />
                   </svg>
-                  <img src={icons("js_light")} />
+                  <img src={icons("js_light")} alt="js icon" />
                 </JS>
               </IconsWrapper>
             </DevImageWrapper>
@@ -649,11 +649,11 @@ const About = ({ location }) => {
             </DesignTitle>
 
             <DesignImageWrapper className="illustration_wrapper">
-              <DesignIllustration src={images("des_illustration")} />
+              <DesignIllustration src={images("des_illustration")} alt="design illustration" />
 
               <IconsWrapper>
                 <Ruler isHomepage={isHomepage}>
-                  <img src={icons("ruler_dark")} />
+                  <img src={icons("ruler_dark")} alt="ruler icon" />
                   <svg width="106" height="83" viewBox="0 0 106 83" fill="none">
                     <path
                       d="M13 48.5C11.3431 48.5 10 49.8431 10 51.5V78C10 80.7614 7.76142 83 5 83C2.23858 83 0 80.7614 0 78V51.5C0 44.3203 5.8203 38.5 13 38.5H27V48.5H13Z"
@@ -684,7 +684,7 @@ const About = ({ location }) => {
                     />
                   </svg>
 
-                  <img src={icons("scale_dark")} />
+                  <img src={icons("scale_dark")} alt="scale icon" />
                 </Scale>
 
                 <Crop isHomepage={isHomepage}>
@@ -701,7 +701,7 @@ const About = ({ location }) => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <img src={icons("crop_dark")} />
+                  <img src={icons("crop_dark")} alt="crop icon" />
                 </Crop>
 
                 <Grid isHomepage={isHomepage}>
@@ -718,7 +718,7 @@ const About = ({ location }) => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <img src={icons("grid_dark")} />
+                  <img src={icons("grid_dark")} alt="grid icon" />
                 </Grid>
 
                 <Pen isHomepage={isHomepage}>
@@ -740,7 +740,7 @@ const About = ({ location }) => {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <img src={icons("pen_dark")} />
+                  <img src={icons("pen_dark")} alt="pen icon" />
                 </Pen>
               </IconsWrapper>
             </DesignImageWrapper>
