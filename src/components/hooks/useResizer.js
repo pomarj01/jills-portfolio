@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useResizer = () => {
-  const initialWidth = window.innerWidth < 640;
-  const [ isMobile, setIsMobile ] = useState(initialWidth);
+  const [ isMobile, setIsMobile ] = useState(0);
 
   const handleWindowResize = () => {
     setIsMobile(window.innerWidth < 640);
