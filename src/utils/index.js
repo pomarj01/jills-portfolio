@@ -3,6 +3,28 @@ import find from "lodash/find";
 import { images } from "../components/images/collection";
 
 
+export const headTags = {
+  title: "Jill Pomares | Front End Developer",
+  website: "http:/jillpomares.com",
+  meta: {
+    description:
+      "Portfolio built using Gatsby to showcase previous and current projects",
+    keywords: [
+      "front-end",
+      "developer",
+      "designer",
+      "document",
+      "html",
+      "css",
+      "reactjs",
+      "javascript",
+      "ui",
+      "ux",
+      "tags"
+    ]
+  },
+};
+
 export const theme = {
   colors: {
     dark: "#252835",
