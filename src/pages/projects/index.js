@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Navigation from "../../components/navigation";
+import Header from "../../components/layout/header";
 import Card from "../../components/card";
-import { shapes, images, icons } from './media'
+import { shapes, images, icons } from '../../components/images/library'
 import { device } from "../../utils";
 
 const Wrapper = styled.div`
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Header = styled.div`
+const Title = styled.div`
   min-height: 0vw;
   font-size: clamp(1.5rem, -0.5rem + 6.6667vw, 2.5rem);
   font-weight: 700;
@@ -27,7 +27,11 @@ const Header = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 2rem 0;
+  padding: 0;
+
+  @media ${device.tablet} {
+    padding: 2rem 0;
+  }
 `;
 
 const Project = styled.div`
@@ -103,17 +107,17 @@ const CardWrapper = styled.div`
 
 
 const Projects = ({ location }) => {
-  const hideNav = location.pathname === "/"; 
+  const isHomepage = location.pathname === "/"; 
 
   return (
     <Wrapper>
-      {hideNav ? "" : <Navigation />}
+      { !isHomepage ? <Header /> : "" }
 
-      <Header>Personal Projects</Header>
+      <Title>Personal Projects</Title>
 
       <Content>
         <Project>
-          <OblongsStyles src={shapes("oblongs")} />
+          <OblongsStyles src={shapes("oblongs")} alt="oblongs vector"/>
           <CardWrapper>
             <Card
               background="#ddebf4"
@@ -126,11 +130,11 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <EclipsesStyles src={shapes("eclipses")} />
+          <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector"/>
         </Project>
 
         <Project>
-          <BigWavesStyles src={shapes("big_waves")} />
+          <BigWavesStyles src={shapes("big_waves")} alt="big waves vector" />
           <CardWrapper>
             <Card
               background="#E5F0EF"
@@ -154,7 +158,7 @@ const Projects = ({ location }) => {
         </Project>
 
         <Project>
-          <DoubleWavesStyles src={shapes("double_waves")} />
+          <DoubleWavesStyles src={shapes("double_waves")} alt="double waves vector"/>
           <CardWrapper>
             <Card
               background="#EEDFDC"
@@ -167,12 +171,12 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <SquareDotsStyles src={shapes("square_dots")} />
+          <SquareDotsStyles src={shapes("square_dots")} alt="squared dots vector" />
           <FilledOblongsStyles src={shapes("filled_oblongs")} />
         </Project>
 
         <Project>
-          <TriangleCircleStyles src={shapes("triangle_circle")} />
+          <TriangleCircleStyles src={shapes("triangle_circle")} alt="triangle with circles vector" />
           <CardWrapper>
             <Card
               background="#F6EDD3"
@@ -181,16 +185,16 @@ const Projects = ({ location }) => {
               tags={["Design", "Figma"]}
               tagsColor="#E5CB80"
               media={[
-                icons("monitor"),
-                icons("palette"),
-                icons("pen"),
-                icons("vector"),
-                icons("wireframe"),
-                icons("vscode"),
-                icons("js"),
-                icons("cloud"),
-                icons("ab_testing"),
-                icons("github"),
+                icons("monitor_dark"),
+                icons("palette_dark"),
+                icons("pen_dark"),
+                icons("vector_dark"),
+                icons("wireframe_dark"),
+                icons("code_dark"),
+                icons("js_dark"),
+                icons("cloud_dark"),
+                icons("ab_testing_dark"),
+                icons("github_dark"),
                 icons("planet"),
                 icons("paint_roller"),
                 icons("spaceship"),
@@ -215,7 +219,7 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <CircledLinesDotsStyles src={shapes("circledLines_dots")} />
+          <CircledLinesDotsStyles src={shapes("circledLines_dots")} alt="circled lines vector" />
         </Project>
       </Content>
     </Wrapper>
