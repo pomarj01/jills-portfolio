@@ -28,10 +28,16 @@ export const headTags = {
 export const theme = {
   colors: {
     dark: "#252835",
-    light: "#f0f0f0",
+    light: [
+      "#f5f5f5", // light
+      "#f0f0f0", // lightness -1
+    ],
     primary: "#d9bdc7",
     secondary: "transparent",
-    accent: "#dda3b8",
+    accent: [
+      "#CEACB7", // pink
+      "#dda3b8", // pinkness -1
+    ],
   },
   space: [
     0,
@@ -45,6 +51,7 @@ export const theme = {
     "1.5rem", // 24px
     "2rem", // 32px
     "4rem", // 64px
+    "6rem", // 96px
     "8rem", // 128px
     "16rem", // 256px
   ],
