@@ -31,6 +31,7 @@ const renderImages = [
   { name: "des_monitor" },
   { name: "full_dev_illustration" },
   { name: "full_des_illustration" },
+  { name: "footer_wave" },
 ];
 
 const renderIcons = [
@@ -66,6 +67,9 @@ const renderIcons = [
   { name: "crop_dark" },
   { name: "scale_dark" },
   { name: "typography_dark" },
+  { name: "heart" },
+  { name: "linkedIn" },
+  { name: "github_icon" },
 ];
 
 export const shapes = (shape) => {
@@ -103,6 +107,7 @@ export const images = (image) => {
   setOfImages.set(list[9].name, list[9].url);
   setOfImages.set(list[10].name, list[10].url);
   setOfImages.set(list[11].name, list[11].url);
+  setOfImages.set(list[12].name, list[12].url);
 
   return setOfImages.get(image);
 };
@@ -143,6 +148,9 @@ export const icons = (icon) => {
   setOfIcons.set(list[29].name, list[29].url);
   setOfIcons.set(list[30].name, list[30].url);
   setOfIcons.set(list[31].name, list[31].url);
+  setOfIcons.set(list[32].name, list[32].url);
+  setOfIcons.set(list[33].name, list[33].url);
+  setOfIcons.set(list[34].name, list[34].url);
 
   return setOfIcons.get(icon);
 };

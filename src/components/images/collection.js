@@ -62,6 +62,10 @@ import fb_landing from "../../assets/fb_landing.png";
 import fb_register from "../../assets/fb_register.png";
 import heattech_homepage from "../../assets/heattech_homepage.png";
 import heattech_homepage_2 from "../../assets/heattech_homepage_2.png";
+import footer_wave from "../../assets/footer_wave.svg";
+import heart from "../../assets/icons/heart.svg";
+import linkedIn from "../../assets/icons/linkedIn.svg";
+import github_icon from "../../assets/icons/github_icon.svg";
 
 const images = [
   { name: "logo", url: `${logo}` },
@@ -128,6 +132,10 @@ const images = [
   { name: "fb_register", url: `${fb_register}` },
   { name: "heattech", url: `${heattech_homepage}` },
   { name: "heattech_2", url: `${heattech_homepage_2}` },
+  { name: "footer_wave", url: `${footer_wave}` },
+  { name: "heart", url: `${heart}` },
+  { name: "linkedIn", url: `${linkedIn}` },
+  { name: "github_icon", url: `${github_icon}` },
 ];
 
 
