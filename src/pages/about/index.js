@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import Header from "../../components/layout/header";
+import { Header } from "../../components/layout/index";
 import { useResizer } from "../../components/hooks/useResizer";
 import { images, icons } from "../../components/images/library";
 import { device, theme } from "../../utils";
 
 
 const Wrapper = styled.div`
-  background: #252835;
   height: ${props => props.isHomepage ? '80vh' : '95vh'};
   width: 100%;
   display: flex;
@@ -102,7 +101,7 @@ const Title = styled.div`
     }
 
     &:hover {
-      color: ${theme.colors.accent};
+      color: ${theme.colors.accent[1]};
 
       svg {
         opacity: 1;
@@ -118,7 +117,7 @@ const DevTitle = styled(Title)`
   padding: 2rem 0 0 2rem;
 
   a {
-    color: ${theme.colors.light};
+    color: ${theme.colors.light[1]};
   }
 `;
 
@@ -282,7 +281,7 @@ const Browser = styled(Icon)`
   }
 `;
 
-const HTML = styled(Icon)`
+const Html = styled(Icon)`
   right: 0;
   bottom: 0;
   margin-bottom: 19.6rem;
@@ -312,7 +311,7 @@ const HTML = styled(Icon)`
   }
 `;
 
-const CSS = styled(Icon)`
+const Css = styled(Icon)`
   flex-direction: row;
   right: 0;
   bottom: 0;
@@ -344,7 +343,7 @@ const CSS = styled(Icon)`
   }
 `;
 
-const JS = styled(Icon)`
+const JavaScript = styled(Icon)`
   right: 0;
   bottom: 0;
   margin-bottom: 11.6rem;
@@ -587,7 +586,7 @@ const About = ({ location }) => {
                   </svg>
                 </Browser>
 
-                <HTML isHomepage={isHomepage}>
+                <Html isHomepage={isHomepage}>
                   <img src={icons("html_light")} alt="hmtl icon" />
                   <svg width="147" height="46" viewBox="0 0 147 46" fill="none">
                     <path
@@ -599,9 +598,9 @@ const About = ({ location }) => {
                       strokeDasharray="10 10"
                     />
                   </svg>
-                </HTML>
+                </Html>
 
-                <CSS isHomepage={isHomepage}>
+                <Css isHomepage={isHomepage}>
                   <img src={icons("css_light")} alt="css icon" />
                   <svg width="191" height="18" viewBox="0 0 191 18" fill="none">
                     <path
@@ -613,9 +612,9 @@ const About = ({ location }) => {
                       strokeDasharray="10 10"
                     />
                   </svg>
-                </CSS>
+                </Css>
 
-                <JS isHomepage={isHomepage}>
+                <JavaScript isHomepage={isHomepage}>
                   <svg width="146" height="46" viewBox="0 0 146 46" fill="none">
                     <path
                       d="M145 1.00012H17C12.5817 1.00012 8.99997 4.58184 8.99997 9.00012V45M8.99997 45H17M8.99997 45H1"
@@ -627,7 +626,7 @@ const About = ({ location }) => {
                     />
                   </svg>
                   <img src={icons("js_light")} alt="js icon" />
-                </JS>
+                </JavaScript>
               </IconsWrapper>
             </DevImageWrapper>
           </DevBox>
