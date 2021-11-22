@@ -1,16 +1,16 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { device } from "../../utils";
+import { device, theme } from "../../utils";
 import { images } from "../images/library"
 
 const Wrapper = styled.div`
+  background: ${theme.colors.dark};
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 2rem 4rem;
   width: 100%;
-  background: #252835;
+  padding: ${theme.space[9]} ${theme.space[10]};
 
   @media ${device.laptop} {
     justify-content: space-between;
@@ -20,30 +20,30 @@ const Wrapper = styled.div`
 const LinksWrapper = styled.ul`
   display: flex;
   list-style-type: none;
-  padding: 0;
+  padding: ${theme.space[0]};
 `;
 
 const LinkItem = styled.li`
-  padding: 0.5rem;
-  
+  padding: ${theme.space[3]};
+
   .active {
-    color: #ceacb7;
+    color: ${theme.colors.accent[0]};
 
     &::after {
       position: absolute;
       content: "";
       width: 100%;
       height: 2px;
-      bottom: 0;
-      left: 0;
-      background: #ceacb7;
+      bottom: ${theme.space[0]};
+      left: ${theme.space[0]};
+      background: ${theme.colors.accent[0]};
       transform: none;
     }
   }
 
   &:hover {
     a {
-      color: #ceacb7;
+      color: ${theme.colors.accent[0]};
 
       &::after {
         transform: scaleX(1);
@@ -56,9 +56,9 @@ const LinkItem = styled.li`
 const LinkStyles = styled(Link)`
   min-height: 0vw;
   font-size: clamp(1rem, 0.8125rem + 0.8333vw, 1.05rem);
-  font-weight: 800;
+  font-weight: ${theme.fontWeights.bold};
   position: relative;
-  padding: 1rem;
+  padding: ${theme.space[5]};
   display: block;
 
   &::after {
@@ -66,9 +66,9 @@ const LinkStyles = styled(Link)`
     content: "";
     width: 100%;
     height: 2px;
-    bottom: 0;
-    left: 0;
-    background: #ceacb7;
+    bottom: ${theme.space[0]};
+    left: ${theme.space[0]};
+    background: ${theme.colors.accent[0]};
     transition: transform 0.3s;
     transform: scaleX(0);
     transform-origin: right;
@@ -81,7 +81,11 @@ const LogoLink = styled(Link)`
 
 const Logo = styled.img`
   display: inherit;
-  width: 3rem;
+  width ${theme.space[9]};
+
+  @media ${device.tablet} { 
+    width: ${theme.space[10]};
+  }
 `;
 
 const NavLinks = ({ navLinks }) => (

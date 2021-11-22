@@ -47,31 +47,31 @@ const DesignBox = styled(Box)`
   flex: 4;
 
   @media ${device.tablet} {
-    padding: 1.5rem;
+    padding: ${theme.space[8]};
   }
 `;
 
 const Title = styled.div`
   font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
-  font-weight: 700;
+  font-weight: ${theme.fontWeights.bold};
 
   a {
-    color: ${theme.colors.light};
+    color: ${theme.colors.light[1]};
     position: absolute;
-    left: 2rem;
-    top: 1rem;
+    left: ${theme.space[9]};
+    top: ${theme.space[5]};
     z-index: 1;
 
     svg {
       transform: translateX(-10px);
       transition: 300ms ease-out;
-      color: ${theme.colors.light};
+      color: ${theme.colors.light[1]};
     }
 
     &:hover {
       svg {
         transform: translateX(-26px);
-        color: ${theme.colors.accent};
+        color: ${theme.colors.accent[1]};
       }
     }
   }
@@ -303,7 +303,7 @@ const NavContainer = styled.div`
 
 const Navigation = styled.div`
   position: relative;
-  height: 600px;
+  height: 300px;
   z-index: 2;
 
   &.slanted-left {
@@ -312,7 +312,7 @@ const Navigation = styled.div`
     &::after {
       right: 0;
       border-right: 300px solid transparent;
-      border-top: 600px solid #484848;
+      border-top: 300px solid #484848;
     }
   }
 
@@ -322,6 +322,16 @@ const Navigation = styled.div`
     top: 0;
     width: 0;
     height: 0;
+  }
+
+  @media ${device.l_laptop} {
+    &.slanted-left {
+      height: 600px;
+
+      &::after {
+        border-top: 600px solid #484848;
+      }
+    }
   }
 `;
 

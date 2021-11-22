@@ -63,20 +63,20 @@ const Title = styled.div`
   a {
     color: ${theme.colors.dark};
     position: absolute;
-    right: 2rem;
-    bottom: 1rem;
+    right: ${theme.space[9]};
+    bottom: ${theme.space[5]};
     z-index: 1;
 
     svg {
       transform: translateX(10px);
       transition: 300ms ease-out;
-      color: ${theme.colors.light};
+      color: ${theme.colors.light[1]};
     }
 
     &:hover {
       svg {
         transform: translateX(26px);
-        color: ${theme.colors.accent};
+        color: ${theme.colors.accent[1]};
       }
     }
   }
@@ -87,7 +87,7 @@ const Content = styled.div`
   justify-content: space-between;
   margin: 1.5rem 1.5rem 0;
   // font-size: clamp(1.12rem, 1.0657rem + 0.2714vw, 1.5rem);
-  color: ${theme.colors.light};
+  color: ${theme.colors.light[1]};
 `;
 
 const ChevronShape = styled.img`
@@ -364,7 +364,7 @@ const NavContainer = styled.div`
 
 const Navigation = styled.div`
   position: relative;
-  height: 600px;
+  height: 300px;
   z-index: 2;
 
   &.slanted-left {
@@ -373,7 +373,7 @@ const Navigation = styled.div`
     &::after {
       right: 0;
       border-left: 300px solid transparent;
-      border-bottom: 600px solid #d9bdc7;
+      border-bottom: 300px solid #d9bdc7;
     }
   }
 
@@ -383,6 +383,16 @@ const Navigation = styled.div`
     top: 0;
     width: 0;
     height: 0;
+  }
+
+  @media ${device.l_laptop} {
+    &.slanted-left {
+      height: 600px;
+
+      &::after {
+        border-bottom: 600px solid #d9bdc7;
+      }
+    }
   }
 `;
 
