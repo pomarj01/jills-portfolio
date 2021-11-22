@@ -24,31 +24,45 @@ const complexDisplay = css`
       ? `@media ${device.l_laptop} { display: none; };`
       : `display: flex;`}
 `;
+// Refactor in the future, probably add in card component
+// as this is specifially for that component for hiding CTA 
 
+const complexColor = css`
+  ${(props) =>
+    props.variant === "primary"
+      ? ` background: ${theme.colors.primary}; `
+      : (props.variant !== 'custom' &&
+      `
+        background: ${theme.colors[`${props.variant}`]};
+        border: ${theme.borders.thin};
+        border-color: ${theme.colors.primary};
+      `)}
+
+  ${(props) =>
+    props.variant === "custom" &&
+    `
+      background: ${props.customColor};
+      color: ${props.customText};
+    `}
+`;
+  
 const BaseButton = styled.button`
-  ${(props) => (props.hidden ? complexDisplay : "display: flex")};
   justify-content: center;
   align-items: center;
-  padding: ${theme.space[4]} ${theme.space[5]};
+  padding: ${theme.space[5]} ${theme.space[9]};
   margin: ${theme.space[4]};
-
-  background: ${(props) =>
-    props.variant === "primary" 
-      ? theme.colors.primary 
-      : theme.colors[`${props.variant}`]
-    };
-  border: ${theme.borders.thin};
-  border-color: ${theme.colors.primary};
+  color: ${theme.colors.dark};
   border-radius: ${theme.radii.base};
   font-weight: ${theme.fontWeights.bold};
-  color: ${theme.colors.dark};
-
+  ${(props) => (props.hidden ? complexDisplay : "display: flex")};
+  ${(props) => props.variant && complexColor};
+  
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus {
-    color: ${theme.colors.light};
-    border-color: ${theme.colors.accent};
-    background-color: ${theme.colors.accent};
+    color: ${theme.colors.dark};
+    border-color: ${theme.colors.accent[0]};
+    background-color: ${theme.colors.accent[0]};
   }
 
   &:disabled {
@@ -59,31 +73,45 @@ const BaseButton = styled.button`
 `;
 
 
-const Button = ({ children, label, variant, onClick, disabled, device  }) => {
-
+const Button = ({
+  children,
+  label,
+  variant,
+  onClick,
+  disabled,
+  device,
+  customColor,
+  customText,
+}) => {
   const renderChildren = () => {
     if (label) return label;
     if (children) return children;
 
-    return 'Button';
+    return "Button";
   };
 
   const handleOnClick = (event) => {
     if (disabled) return;
 
-    onClick &&
-      onClick({ event});
+    onClick && onClick({ event });
   };
 
   return (
-    <BaseButton variant={variant} disabled={disabled} hidden={device} onClick={handleOnClick}>
+    <BaseButton
+      variant={variant}
+      disabled={disabled}
+      hidden={device}
+      onClick={handleOnClick}
+      customColor={customColor}
+      customText={customText}
+    >
       {renderChildren()}
     </BaseButton>
   );
 };
 
 BaseButton.propTypes = {
-  variant: PropTypes.oneOf(["primary", "secondary"]),
+  variant: PropTypes.oneOf(["primary", "secondary", "custom"]),
   label: PropTypes.string,
   disabled: PropTypes.bool,
   hidden: PropTypes.string,
