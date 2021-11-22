@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../components/layout/header";
+import { Header } from "../../components/layout/index";
 import Card from "../../components/card";
 import { shapes, images, icons } from '../../components/images/library'
-import { device } from "../../utils";
+import { device, theme } from "../../utils";
 
 const Wrapper = styled.div`
-  background: #f5f5f5;
-  color: #252835;
+  background: ${theme.colors.light[0]};
+  color: ${theme.colors.dark};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   min-height: 0vw;
   font-size: clamp(1.5rem, -0.5rem + 6.6667vw, 2.5rem);
-  font-weight: 700;
+  font-weight: ${theme.fontWeights.bold};
   padding: 2rem;
   align-self: center;
 
@@ -55,49 +55,49 @@ const Shapes = styled.img`
 const OblongsStyles = styled(Shapes)`
   left: 0;
   top: 0;
-  width: 7%;
+  width: 5%;
 `;
 
 const EclipsesStyles = styled(Shapes)`
   right: 0;
   bottom: 10%;
-  width: 6%;
+  width: 4%;
 `;
 
 const BigWavesStyles = styled(Shapes)`
   left: 0;
   top: 0;
-  width: 15%;
+  width: 12%;
 `;
 
 const DoubleWavesStyles = styled(Shapes)`
-  left: 14%;
+  left: 16%;
   top: 25%;
-  width: 7%;
+  width: 5%;
 `;
 
 const SquareDotsStyles = styled(Shapes)`
-  right: 17%;
+  right: 18%;
   top: 2%;
-  width: 5%;
+  width: 4%;
 `;
 
 const FilledOblongsStyles = styled(Shapes)`
   right: 0;
   bottom: 20%;
-  width: 8%;
+  width: 6%;
 `;
 
 const TriangleCircleStyles = styled(Shapes)`
-  left: 15%;
+  left: 16%;
   top: 0%;
-  width: 8%;
+  width: 6%;
 `;
 
 const CircledLinesDotsStyles = styled(Shapes)`
-  right: 14%;
-  bottom: 2%;
-  width: 10%;
+  right: 17%;
+  bottom: 3%;
+  width: 7%;
 `;
 
 const CardWrapper = styled.div`
@@ -117,7 +117,7 @@ const Projects = ({ location }) => {
 
       <Content>
         <Project>
-          <OblongsStyles src={shapes("oblongs")} alt="oblongs vector"/>
+          <OblongsStyles src={shapes("oblongs")} alt="oblongs vector" />
           <CardWrapper>
             <Card
               background="#ddebf4"
@@ -130,7 +130,7 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector"/>
+          <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector" />
         </Project>
 
         <Project>
@@ -158,7 +158,10 @@ const Projects = ({ location }) => {
         </Project>
 
         <Project>
-          <DoubleWavesStyles src={shapes("double_waves")} alt="double waves vector"/>
+          <DoubleWavesStyles
+            src={shapes("double_waves")}
+            alt="double waves vector"
+          />
           <CardWrapper>
             <Card
               background="#EEDFDC"
@@ -171,12 +174,18 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <SquareDotsStyles src={shapes("square_dots")} alt="squared dots vector" />
+          <SquareDotsStyles
+            src={shapes("square_dots")}
+            alt="squared dots vector"
+          />
           <FilledOblongsStyles src={shapes("filled_oblongs")} />
         </Project>
 
         <Project>
-          <TriangleCircleStyles src={shapes("triangle_circle")} alt="triangle with circles vector" />
+          <TriangleCircleStyles
+            src={shapes("triangle_circle")}
+            alt="triangle with circles vector"
+          />
           <CardWrapper>
             <Card
               background="#F6EDD3"
@@ -219,7 +228,10 @@ const Projects = ({ location }) => {
               ctaContent="Full Project"
             />
           </CardWrapper>
-          <CircledLinesDotsStyles src={shapes("circledLines_dots")} alt="circled lines vector" />
+          <CircledLinesDotsStyles
+            src={shapes("circledLines_dots")}
+            alt="circled lines vector"
+          />
         </Project>
       </Content>
     </Wrapper>
