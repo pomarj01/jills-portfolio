@@ -1,4 +1,5 @@
 import React from "react";
+import Layout from "./src/components/layout";
 
 ("use strict");
 
@@ -12,4 +13,9 @@ export const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
       {pluginOptions.text}
     </div>,
   ]);
+};
+
+// Wrapping Layout page element across the site
+export const wrapPageElement = ({ element, props }) => {
+  return <Layout {...props}>{element}</Layout>;
 };
