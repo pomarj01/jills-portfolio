@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Header } from "../../components/layout/index";
 import Card from "../../components/card";
-import { shapes, images, icons } from '../../components/images/library'
+import { shapes, images, icons } from "../../components/images/library";
 import { device, theme } from "../../utils";
 
 const Wrapper = styled.div`
@@ -37,7 +36,7 @@ const Content = styled.div`
 const Project = styled.div`
   position: relative;
   margin: 0 0 4rem;
-  
+
   @media ${device.tablet} {
     padding-bottom: 4rem;
   }
@@ -105,137 +104,130 @@ const CardWrapper = styled.div`
   justify-content: center;
 `;
 
+const Projects = () => (
+  <Wrapper>
+    <Title>Personal Projects</Title>
 
-const Projects = ({ location }) => {
-  const isHomepage = location.pathname === "/"; 
-
-  return (
-    <Wrapper>
-      { !isHomepage ? <Header /> : "" }
-
-      <Title>Personal Projects</Title>
-
-      <Content>
-        <Project>
-          <OblongsStyles src={shapes("oblongs")} alt="oblongs vector" />
-          <CardWrapper>
-            <Card
-              background="#ddebf4"
-              header="Waitron UK"
-              description="An ordering system web app aimed to be used by local pubs. Designed both admin and user side of the app. The admin side was targeted on tablet devices while for the customer side was on mobile."
-              tags={["Design", "Figma"]}
-              tagsColor="#adc8d9"
-              media={[images("waitron_dashboard")]}
-              mediaSize="30rem"
-              ctaContent="Full Project"
-            />
-          </CardWrapper>
-          <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector" />
-        </Project>
-
-        <Project>
-          <BigWavesStyles src={shapes("big_waves")} alt="big waves vector" />
-          <CardWrapper>
-            <Card
-              background="#E5F0EF"
-              header="FoodBooklet"
-              description="A cooking booklet web app where you can organise all your recipes as well as plan them by creating shopping list. Designed using Figma and developed using MERN stack."
-              tags={[
-                "Design",
-                "Development",
-                "Figma",
-                "ReactJS",
-                "MongoDB",
-                "Express",
-                "Node.js",
-              ]}
-              tagsColor="#ADCCC9"
-              media={[images("fb_landing"), images("fb_register")]}
-              mediaSize="20rem"
-              ctaContent="Full Project"
-            />
-          </CardWrapper>
-        </Project>
-
-        <Project>
-          <DoubleWavesStyles
-            src={shapes("double_waves")}
-            alt="double waves vector"
+    <Content>
+      <Project>
+        <OblongsStyles src={shapes("oblongs")} alt="oblongs vector" />
+        <CardWrapper>
+          <Card
+            background="#ddebf4"
+            header="Waitron UK"
+            description="An ordering system web app aimed to be used by local pubs. Designed both admin and user side of the app. The admin side was targeted on tablet devices while for the customer side was on mobile."
+            tags={["Design", "Figma"]}
+            tagsColor="#adc8d9"
+            media={[images("waitron_dashboard")]}
+            mediaSize="30rem"
+            ctaContent="Full Project"
           />
-          <CardWrapper>
-            <Card
-              background="#EEDFDC"
-              header="HeatTech"
-              description="A simple and straight forward website for a plumbing and repair services company which only provides information, fetaures and contact details of the company. Only created designs for mobile view using Figma."
-              tags={["Design", "Figma"]}
-              tagsColor="#DDC1BB"
-              media={[images("heattech"), images("heattech_2")]}
-              mediaSize="260px"
-              ctaContent="Full Project"
-            />
-          </CardWrapper>
-          <SquareDotsStyles
-            src={shapes("square_dots")}
-            alt="squared dots vector"
-          />
-          <FilledOblongsStyles src={shapes("filled_oblongs")} />
-        </Project>
+        </CardWrapper>
+        <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector" />
+      </Project>
 
-        <Project>
-          <TriangleCircleStyles
-            src={shapes("triangle_circle")}
-            alt="triangle with circles vector"
+      <Project>
+        <BigWavesStyles src={shapes("big_waves")} alt="big waves vector" />
+        <CardWrapper>
+          <Card
+            background="#E5F0EF"
+            header="FoodBooklet"
+            description="A cooking booklet web app where you can organise all your recipes as well as plan them by creating shopping list. Designed using Figma and developed using MERN stack."
+            tags={[
+              "Design",
+              "Development",
+              "Figma",
+              "ReactJS",
+              "MongoDB",
+              "Express",
+              "Node.js",
+            ]}
+            tagsColor="#ADCCC9"
+            media={[images("fb_landing"), images("fb_register")]}
+            mediaSize="20rem"
+            ctaContent="Full Project"
           />
-          <CardWrapper>
-            <Card
-              background="#F6EDD3"
-              header="Icon Designs"
-              description="A collection of icons ranging from outline to filled icons. These icons were created using the easiest styles such as basic shapes and lines and incoroporated colours using Figma."
-              tags={["Design", "Figma"]}
-              tagsColor="#E5CB80"
-              media={[
-                icons("monitor_dark"),
-                icons("palette_dark"),
-                icons("pen_dark"),
-                icons("vector_dark"),
-                icons("wireframe_dark"),
-                icons("code_dark"),
-                icons("js_dark"),
-                icons("cloud_dark"),
-                icons("ab_testing_dark"),
-                icons("github_dark"),
-                icons("planet"),
-                icons("paint_roller"),
-                icons("spaceship"),
-                icons("letterJ"),
-                icons("letterP"),
-              ]}
-              mediaSize="64px"
-              mediaWrapperStyles={{
-                flexWrap: "wrap",
-                margin: "1rem 0",
-                maxWidth: "450px",
-                height: "280px",
-                justifyContent: "space-around",
-                alignContent: "space-around",
-              }}
-              imageStyles={{
-                boxShadow: "none",
-                display: "flex",
-                width: "16%",
-              }}
-              mediaBackground="#fff"
-              ctaContent="Full Project"
-            />
-          </CardWrapper>
-          <CircledLinesDotsStyles
-            src={shapes("circledLines_dots")}
-            alt="circled lines vector"
+        </CardWrapper>
+      </Project>
+
+      <Project>
+        <DoubleWavesStyles
+          src={shapes("double_waves")}
+          alt="double waves vector"
+        />
+        <CardWrapper>
+          <Card
+            background="#EEDFDC"
+            header="HeatTech"
+            description="A simple and straight forward website for a plumbing and repair services company which only provides information, fetaures and contact details of the company. Only created designs for mobile view using Figma."
+            tags={["Design", "Figma"]}
+            tagsColor="#DDC1BB"
+            media={[images("heattech"), images("heattech_2")]}
+            mediaSize="260px"
+            ctaContent="Full Project"
           />
-        </Project>
-      </Content>
-    </Wrapper>
-  );
-};
+        </CardWrapper>
+        <SquareDotsStyles
+          src={shapes("square_dots")}
+          alt="squared dots vector"
+        />
+        <FilledOblongsStyles src={shapes("filled_oblongs")} />
+      </Project>
+
+      <Project>
+        <TriangleCircleStyles
+          src={shapes("triangle_circle")}
+          alt="triangle with circles vector"
+        />
+        <CardWrapper>
+          <Card
+            background="#F6EDD3"
+            header="Icon Designs"
+            description="A collection of icons ranging from outline to filled icons. These icons were created using the easiest styles such as basic shapes and lines and incoroporated colours using Figma."
+            tags={["Design", "Figma"]}
+            tagsColor="#E5CB80"
+            media={[
+              icons("monitor_dark"),
+              icons("palette_dark"),
+              icons("pen_dark"),
+              icons("vector_dark"),
+              icons("wireframe_dark"),
+              icons("code_dark"),
+              icons("js_dark"),
+              icons("cloud_dark"),
+              icons("ab_testing_dark"),
+              icons("github_dark"),
+              icons("planet"),
+              icons("paint_roller"),
+              icons("spaceship"),
+              icons("letterJ"),
+              icons("letterP"),
+            ]}
+            mediaSize="64px"
+            mediaWrapperStyles={{
+              flexWrap: "wrap",
+              margin: "1rem 0",
+              maxWidth: "450px",
+              height: "280px",
+              justifyContent: "space-around",
+              alignContent: "space-around",
+            }}
+            imageStyles={{
+              boxShadow: "none",
+              display: "flex",
+              width: "16%",
+            }}
+            mediaBackground="#fff"
+            ctaContent="Full Project"
+          />
+        </CardWrapper>
+        <CircledLinesDotsStyles
+          src={shapes("circledLines_dots")}
+          alt="circled lines vector"
+        />
+      </Project>
+    </Content>
+  </Wrapper>
+);
 
 export default Projects;

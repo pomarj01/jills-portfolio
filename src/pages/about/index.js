@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
-import { Header } from "../../components/layout/index";
 import { useResizer } from "../../components/hooks/useResizer";
 import { images, icons } from "../../components/images/library";
 import { device, theme } from "../../utils";
 
-
 const Wrapper = styled.div`
-  height: ${props => props.isHomepage ? '80vh' : '95vh'};
+  height: ${(props) => (props.isHomepage ? "80vh" : "95vh")};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -131,7 +129,6 @@ const DesignTitle = styled(Title)`
 
     &:hover {
       color: ${theme.colors.dark};
-
     }
 
     svg {
@@ -236,7 +233,7 @@ const ABTest = styled(Icon)`
   }
 
   @media ${device.laptop} {
-    margin-top: ${props => props.isHomepage ? '4.7rem' : '-0.4rem'};
+    margin-top: ${(props) => (props.isHomepage ? "4.7rem" : "-0.4rem")};
     margin-right: -4rem;
 
     svg {
@@ -245,11 +242,11 @@ const ABTest = styled(Icon)`
   }
 
   @media ${device.l_laptop} {
-    margin-top: ${props => props.isHomepage ? '4.2rem' : '0rem'};
+    margin-top: ${(props) => (props.isHomepage ? "4.2rem" : "0rem")};
   }
 
   @media ${device.desktop} {
-    margin-top: ${props => props.isHomepage ? '19.4rem' : '15.4rem'};
+    margin-top: ${(props) => (props.isHomepage ? "19.4rem" : "15.4rem")};
   }
 `;
 
@@ -260,20 +257,20 @@ const Browser = styled(Icon)`
   margin-top: 5rem;
 
   @media ${device.tablet} {
-    margin-top: ${props => props.isHomepage ? '6.6rem' : '4rem' };
+    margin-top: ${(props) => (props.isHomepage ? "6.6rem" : "4rem")};
   }
 
   @media ${device.laptop} {
-    margin-top: ${props => props.isHomepage ? '5.2rem' : '0.2rem' };
+    margin-top: ${(props) => (props.isHomepage ? "5.2rem" : "0.2rem")};
   }
 
   @media ${device.l_laptop} {
     margin-right: 2rem;
-    margin-top: ${props => props.isHomepage ? '5.2rem' : '0.8rem' };
+    margin-top: ${(props) => (props.isHomepage ? "5.2rem" : "0.8rem")};
   }
 
   @media ${device.desktop} {
-    margin-top: ${props => props.isHomepage ? '20.4rem' : '16.4rem' };
+    margin-top: ${(props) => (props.isHomepage ? "20.4rem" : "16.4rem")};
   }
 
   img {
@@ -288,17 +285,17 @@ const Html = styled(Icon)`
   margin-right: 12.6rem;
 
   @media ${device.tablet} {
-    margin-bottom: ${(props) => (props.isHomepage ? '19.5rem' : '19.8rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "19.5rem" : "19.8rem")};
     margin-right: 14.6rem;
   }
 
   @media ${device.laptop} {
-    margin-bottom: ${(props) => (props.isHomepage ? '25.4rem' : '21.8rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "25.4rem" : "21.8rem")};
     margin-right: 21rem;
   }
 
   @media ${device.l_laptop} {
-    margin-bottom: ${(props) => (props.isHomepage ? '26.5rem' : '21.5rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "26.5rem" : "21.5rem")};
     margin-right: 20rem;
   }
 
@@ -319,17 +316,17 @@ const Css = styled(Icon)`
   margin-right: 12.6rem;
 
   @media ${device.tablet} {
-    margin-bottom: ${(props) => (props.isHomepage ? '17.5rem' : '17.8rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "17.5rem" : "17.8rem")};
     margin-right: 14.6rem;
   }
 
   @media ${device.laptop} {
-    margin-bottom: ${(props) => (props.isHomepage ? '22rem' : '18.8rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "22rem" : "18.8rem")};
     margin-right: 21rem;
   }
 
   @media ${device.l_laptop} {
-    margin-bottom: ${(props) => (props.isHomepage ? '22.5rem' : '18rem')};
+    margin-bottom: ${(props) => (props.isHomepage ? "22.5rem" : "18rem")};
     margin-right: 20rem;
   }
 
@@ -350,17 +347,17 @@ const JavaScript = styled(Icon)`
   margin-right: 12.6rem;
 
   @media ${device.tablet} {
-    margin-bottom: ${props => props.isHomepage ? '11.6rem' : '11.8rem' };
+    margin-bottom: ${(props) => (props.isHomepage ? "11.6rem" : "11.8rem")};
     margin-right: 14.6rem;
   }
 
   @media ${device.laptop} {
-    margin-bottom: ${props => props.isHomepage ? '15rem' : '11.5rem' };
+    margin-bottom: ${(props) => (props.isHomepage ? "15rem" : "11.5rem")};
     margin-right: 21rem;
   }
 
   @media ${device.l_laptop} {
-    margin-bottom: ${props => props.isHomepage ? '15rem' : '10.5rem' };
+    margin-bottom: ${(props) => (props.isHomepage ? "15rem" : "10.5rem")};
     margin-right: 20rem;
   }
 
@@ -382,17 +379,17 @@ const Ruler = styled(Icon)`
   }
 
   @media ${device.laptop} {
-    margin-top: ${props => props.isHomepage ? '6rem' : '2.4rem'};
+    margin-top: ${(props) => (props.isHomepage ? "6rem" : "2.4rem")};
     margin-left: 4rem;
   }
 
   @media ${device.l_laptop} {
-    margin-top: ${props => props.isHomepage ? '6.6rem' : '2rem'};
+    margin-top: ${(props) => (props.isHomepage ? "6.6rem" : "2rem")};
     margin-left: 5rem;
   }
 
   @media ${device.desktop} {
-    margin-top: ${props => props.isHomepage ? '20.8rem' : '16.8rem'};
+    margin-top: ${(props) => (props.isHomepage ? "20.8rem" : "16.8rem")};
     margin-left: 6rem;
   }
 `;
@@ -408,17 +405,17 @@ const Scale = styled(Icon)`
 
   @media ${device.laptop} {
     margin-left: 12.5rem;
-    margin-top: ${props => props.isHomepage ? '20rem' : '16rem'};
+    margin-top: ${(props) => (props.isHomepage ? "20rem" : "16rem")};
   }
 
   @media ${device.l_laptop} {
     margin-left: 11.5rem;
-    margin-top: ${props => props.isHomepage ? '19rem' : '15rem'};
+    margin-top: ${(props) => (props.isHomepage ? "19rem" : "15rem")};
   }
 
   @media ${device.desktop} {
     margin-left: 11.5rem;
-    margin-top: ${props => props.isHomepage ? '34rem' : '30rem'};
+    margin-top: ${(props) => (props.isHomepage ? "34rem" : "30rem")};
   }
 `;
 
@@ -434,7 +431,7 @@ const Crop = styled(Icon)`
 
   @media ${device.laptop} {
     margin-left: 12.5rem;
-    margin-bottom: ${props => props.isHomepage ? '16rem' : '12rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "16rem" : "12rem")};
    
     img {
       margin-right -5.5rem;
@@ -447,12 +444,12 @@ const Crop = styled(Icon)`
 
   @media ${device.l_laptop} {
     margin-left: 11.5rem;
-    margin-bottom: ${props => props.isHomepage ? '16rem' : '12rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "16rem" : "12rem")};
   }
 
   @media ${device.desktop} {
     margin-left: 11.5rem;
-    margin-bottom: ${props => props.isHomepage ? '32rem' : '26rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "32rem" : "26rem")};
   }  
 `;
 
@@ -463,17 +460,17 @@ const Grid = styled(Icon)`
 
   @media ${device.laptop} {
     margin-left: -1rem;
-    margin-bottom: ${props => props.isHomepage ? '5rem' : '0.2rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "5rem" : "0.2rem")};
   }
 
   @media ${device.l_laptop} {
     margin-left: -1rem;
-    margin-bottom: ${props => props.isHomepage ? '4rem' : '0rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "4rem" : "0rem")};
   }
 
   @media ${device.desktop} {
     margin-left: -1rem;
-    margin-bottom: ${props => props.isHomepage ? '19.2rem' : '15.2rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "19.2rem" : "15.2rem")};
   }
 
   img {
@@ -497,12 +494,12 @@ const Pen = styled(Icon)`
 
   @media ${device.laptop} {
     margin-left: -7rem;
-    margin-bottom: ${props => props.isHomepage ? '6.1rem' : '1.2rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "6.1rem" : "1.2rem")};
   }
 
   @media ${device.l_laptop} {
     margin-left: -7rem;
-    margin-bottom: ${props => props.isHomepage ? '5.2rem' : '1rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "5.2rem" : "1rem")};
 
     svg {
       width: 6.8rem;
@@ -512,7 +509,7 @@ const Pen = styled(Icon)`
   @media ${device.desktop} {
     margin-left: -8rem;
     margin-bottom: 20.3em;
-    margin-bottom: ${props => props.isHomepage ? '20.3rem' : '16.3rem'};
+    margin-bottom: ${(props) => (props.isHomepage ? "20.3rem" : "16.3rem")};
   }
 
   img {
@@ -520,15 +517,12 @@ const Pen = styled(Icon)`
   }
 `;
 
-
 const About = ({ location }) => {
   const isHomepage = location.pathname === "/";
   const isMobile = useResizer();
 
   return (
     <Wrapper id="about" isHomepage={isHomepage}>
-      {!isHomepage ? <Header /> : ""}
-
       {isMobile ? (
         <div> For mobile </div>
       ) : (
@@ -550,11 +544,14 @@ const About = ({ location }) => {
             </DevTitle>
 
             <DevImageWrapper className="illustration_wrapper">
-              <DevIllustration src={images("dev_illustration")} alt="development illustration" />
+              <DevIllustration
+                src={images("dev_illustration")}
+                alt="development illustration"
+              />
 
               <IconsWrapper>
                 <ABTest isHomepage={isHomepage}>
-                  <img src={icons("ab_testing_light")} alt="a/b testing icon"/>
+                  <img src={icons("ab_testing_light")} alt="a/b testing icon" />
                   <svg width="18" height="130" viewBox="0 0 18 130" fill="none">
                     <path
                       d="M9 129V1M9 1H17M9 1H1"
@@ -648,7 +645,10 @@ const About = ({ location }) => {
             </DesignTitle>
 
             <DesignImageWrapper className="illustration_wrapper">
-              <DesignIllustration src={images("des_illustration")} alt="design illustration" />
+              <DesignIllustration
+                src={images("des_illustration")}
+                alt="design illustration"
+              />
 
               <IconsWrapper>
                 <Ruler isHomepage={isHomepage}>
