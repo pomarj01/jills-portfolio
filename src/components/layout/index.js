@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Navigation from "../navigation";
 import Button from "../button";
 import { images, icons } from "../../components/images/library";
-import { theme, device } from '../../utils'
+import { theme, device } from "../../utils";
 
 const footerSVG = images("footer_wave");
 
-const Wrapper = styled.div`
+const FooterWrapper = styled.div`
   background: url(${footerSVG});
   height: 100%;
   width: 100%;
@@ -36,7 +36,7 @@ const ContentWrapper = styled.div`
   align-items: center;
   margin: auto;
   padding: ${theme.space[10]} ${theme.space[0]} ${theme.space[5]};
-  
+
   @media ${device.tablet} {
     padding: ${theme.space[11]} ${theme.space[0]} ${theme.space[9]};
   }
@@ -80,41 +80,41 @@ const SocialMedia = styled.div`
   }
 `;
 
+const Layout = ({ children, location }) => {
+  const noFooter = [`/about`];
+  const noLayout = [`/about/development`, `/about/design`];
+  const layoutLess = noLayout.includes(location.pathname.replace(/\/+$/, ""));
+  const hideFooter = noFooter.includes(location.pathname.replace(/\/+$/, ""));
 
-export function Header({ children }) {
   return (
     <>
-      <Navigation />
+      {layoutLess ? null : <Navigation />}
+
       {children}
+
+      {(layoutLess || hideFooter) ? null : (
+        <FooterWrapper>
+          <ContentWrapper>
+            <Content>Wanna chat?</Content>
+            <Button variant="custom" customColor="#252835" customText="#CEACB7">
+              Contact me
+            </Button>
+          </ContentWrapper>
+          <FooterBar>
+            <Author>
+              Developed with
+              <img src={icons("heart")} alt="heart icon" />
+              by Jill Pomares
+            </Author>
+            <SocialMedia>
+              <img src={icons("github_icon")} alt="github icon" />
+              <img src={icons("linkedIn")} alt="linkedin icon" />
+            </SocialMedia>
+          </FooterBar>
+        </FooterWrapper>
+      )}
     </>
   );
 };
 
-
-export function Footer() {
-  return (
-    <Wrapper>
-      <ContentWrapper>
-        <Content>Wanna chat?</Content>
-        <Button
-          variant="custom"
-          customColor="#252835"
-          customText="#CEACB7"
-        >
-          Contact me
-        </Button>
-      </ContentWrapper>
-      <FooterBar>
-        <Author>
-          Developed with
-          <img src={icons("heart")} alt="heart icon" />
-          by Jill Pomares
-        </Author>
-        <SocialMedia>
-          <img src={icons("github_icon")} alt="github icon" />
-          <img src={icons("linkedIn")} alt="linkedin icon" />
-        </SocialMedia>
-      </FooterBar>
-    </Wrapper>
-  );
-};
+export default Layout;
