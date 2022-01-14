@@ -24,56 +24,91 @@ const Container = styled.div`
 `;
 
 const Box = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  transition: 1s;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    display: block;
-    width: 50%;
-    height: 100%;
-    bottom: 0;
-    z-index: 1;
-  }
-`;
-
-const DesignBox = styled(Box)`
   background: linear-gradient(0deg, #f5f5f5 0.02%, #d9bdc7 37.72%);
   position: relative;
-  flex: 4;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: 1s;
 
   @media ${device.tablet} {
     padding: ${theme.space[8]};
   }
 `;
 
-const Title = styled.div`
-  font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
+const NavContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const Navigation = styled.div`
+  position: relative;
+  height: 100px;
+  z-index: 2;
+
+  &.slanted-left {
+    width: 100px;
+    transition: 800ms ease;
+
+    &::after {
+      right: 0;
+      border-right: 100px solid transparent;
+      border-top: 100px solid #484848;
+      transition: 800ms ease;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+  }
+
+  ${NavContainer}:hover & {
+    cursor: pointer;
+    width: 180px;
+    height: 180px;
+
+    &::after {
+      right: 0;
+      border-right: 180px solid transparent;
+      border-top: 180px solid #484848;
+    }
+  }
+`;
+
+const Back = styled.div`
+  font-size: clamp(1rem, 0.6429rem + 1.1607vw, 1.25rem);
   font-weight: ${theme.fontWeights.bold};
 
   a {
-    color: ${theme.colors.light[1]};
+    background: ${theme.colors.primary};
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: inline-flex;
+    align-items: center;
     position: absolute;
-    left: ${theme.space[9]};
+    left: ${theme.space[8]};
     top: ${theme.space[5]};
     z-index: 1;
+  }
+`;
 
-    svg {
-      transform: translateX(-10px);
-      transition: 300ms ease-out;
-      color: ${theme.colors.light[1]};
-    }
+const ArrowIcon = styled.svg`
+  width: 18px;
+  transform: translateX(0px);
+  transition: 300ms ease-out;
+  color: ${theme.colors.light[1]};
+  opacity: 0;
 
-    &:hover {
-      svg {
-        transform: translateX(-26px);
-        color: ${theme.colors.accent[1]};
-      }
-    }
+  ${NavContainer}:hover & {
+    transform: translateX(-10px);
+    color: ${theme.colors.accent[1]};
+    opacity: 1;
   }
 `;
 
@@ -82,18 +117,7 @@ const Content = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin: 1.5rem 1.5rem 0;
-  // font-size: clamp(1.12rem, 1.0657rem + 0.2714vw, 1.5rem);
-  color: ${theme.colors.dark};
-`;
-
-const RoundedWaveShape = styled.img`
-  width: 96px;
-`;
-
-const MultipleShapes = styled.img`
-  position: absolute;
-  bottom: 2%;
-  width: 120px;
+  color: ${theme.colors.dark[0]};
 `;
 
 const ExperienceWrapper = styled.div`
@@ -101,38 +125,85 @@ const ExperienceWrapper = styled.div`
   padding: 1.5rem;
 `;
 
-const Description = styled(ExperienceWrapper)`
+const General = styled(ExperienceWrapper)`
   text-align: right;
-  font-size: ${theme.space[7]};
-  padding-right: 0;
+`
+
+const Description = styled.p`
+  font-size: clamp(0.875rem, 1.0657rem + 0.2714vw, 1.25rem);
 `;
 
 const Projects = styled(ExperienceWrapper)`
-  background: #efd8e0;
-  color: ${theme.colors.dark};
+  background: ${theme.colors.accent[2]};
+  color: ${theme.colors.dark[0]};
   margin-top: ${theme.space[9]};
+  margin-right: ${theme.space[5]};
   position: absolute;
-  top: 25%;
+  bottom: 2%;
+  z-index: 1;
+
+  @media ${device.tablet} {
+    width: 220px;
+    top: 25%;
+    bottom: inherit;
+  }
 `;
 
 const Header = styled.h2`
-  font-size: ${theme.space[8]};
-  margin-bottom: ${theme.space[5]};
+  margin-bottom: ${theme.space[3]};
+  font-size: ${theme.space[6]};
+
+  @media ${device.tablet} {
+    margin-bottom: ${theme.space[5]};
+    font-size: ${theme.space[8]};
+  }
 `;
   
 const Year = styled.p`
-  font-size: ${theme.space[6]};
+  font-size: ${theme.space[4]};
   font-weight: ${theme.fontWeights.bold};
-  margin-bottom: ${theme.space[6]}
+  margin-bottom: ${theme.space[4]};
+
+  @media ${device.tablet} {
+    font-size: ${theme.space[6]};
+    margin-bottom: ${theme.space[6]};
+  }
 `;
 
 const List = styled.ul`
-  font-size: ${theme.space[6]};
+  font-size: ${theme.space[4]};
   padding-left: ${theme.space[9]};
   padding-right: ${theme.space[5]};
+
+  @media ${device.tablet} {
+    font-size: ${theme.space[6]};
+  }
 `;
 
-const Item = styled.li``
+const Item = styled.li`
+  margin-bottom: ${theme.space[2]};
+`;
+
+const RoundedWaveShape = styled.img`
+  display: none;
+
+  @media ${device.tablet} {
+    display: inherit;
+    width: 96px;
+    padding-right: 1.5rem;
+  }
+`;
+
+const MultipleShapes = styled.img`
+  display: none;
+
+  @media ${device.tablet} {
+    display: inherit;
+    position: absolute;
+    bottom: 2%;
+    width: 120px;
+  }
+`;
 
 const DesImageWrapper = styled.div`
   display: flex;
@@ -295,45 +366,6 @@ const Typography = styled(Icon)`
   }
 `;
 
-const NavContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
-const Navigation = styled.div`
-  position: relative;
-  height: 300px;
-  z-index: 2;
-
-  &.slanted-left {
-    width: 300px;
-
-    &::after {
-      right: 0;
-      border-right: 300px solid transparent;
-      border-top: 300px solid #484848;
-    }
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
-  }
-
-  @media ${device.l_laptop} {
-    &.slanted-left {
-      height: 600px;
-
-      &::after {
-        border-top: 600px solid #484848;
-      }
-    }
-  }
-`;
 
 const sideProjects = [ 'Waitron UK', 'FoodBooklet', 'SimplySkin', 'HeatTech', 'Icon designs' ]
 
@@ -341,32 +373,34 @@ const Design = () => {
   return (
     <Wrapper>
       <Container>
-        <DesignBox>
+        <Box>
           <NavContainer>
             <Navigation className="slanted-left">
-              <Title>
-                <a onClick={() => navigate('/about/development')}>
-                  <svg width="38" height="18" viewBox="0 0 42 28" fill="none">
+              <Back>
+                <a onClick={() => navigate(-1)}>
+                  <ArrowIcon width="38" height="18" viewBox="0 0 42 28" fill="none">
                     <path
                       d="M39.5 14H2M2 14L14 2M2 14L14 26"
-                      stroke="#f0f0f0"
+                      stroke="#d9bdc7"
                       strokeWidth="4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                  </svg>
-                  Developer
+                  </ArrowIcon>
+                  Back
                 </a>
-              </Title>
+              </Back>
             </Navigation>
           </NavContainer>
 
           <Content>
-            <Description>
-              I’ve recently taken interest in web designing as well as
-              iconography. The illustration below and in the rest of the site
-              showcase this recent skills I’ve developed using mainly Figma.
-            </Description>
+            <General>
+              <Description>
+                I’ve recently taken interest in web designing as well as
+                iconography. The illustration below and in the rest of the site
+                showcase this recent skills I’ve developed using mainly Figma.
+              </Description>
+            </General>
 
             <RoundedWaveShape src={shapes("rounded_wave")} alt="rounded waves vector" />
 
@@ -542,7 +576,7 @@ const Design = () => {
               </Typography>
             </IconsWrapper>
           </DesImageWrapper>
-        </DesignBox>
+        </Box>
       </Container>
     </Wrapper>
   );

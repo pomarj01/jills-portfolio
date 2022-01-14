@@ -24,70 +24,146 @@ const Container = styled.div`
 `;
 
 const Box = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  transition: 1s;
-
-  &::after {
-    content: " ";
-    position: absolute;
-    display: block;
-    width: 50%;
-    height: 100%;
-    bottom: 0;
-    z-index: 1;
-  }
-`;
-
-const DevBox = styled(Box)`
   background: linear-gradient(
     180deg,
     rgba(37, 40, 53, 1) 0%,
     rgba(72, 72, 72, 1) 100%
   );
   position: relative;
-  flex: 4;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  transition: 1s;
 
   @media ${device.tablet} {
-    padding: 1.5rem;
+    padding: ${theme.space[8]};
+    flex-direction: column;
   }
 `;
 
+const NavContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
 
-const Title = styled.div`
-  font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
-  font-weight: 700;
+const Navigation = styled.div`
+  position: relative;
+  height: 100px;
+  z-index: 2;
+
+  &.slanted-left {
+    width: 100px;
+    transition: 800ms ease;
+   
+    &::after {
+      right: 0;
+      border-left: 100px solid transparent;
+      border-bottom: 100px solid #d9bdc7;
+      transition: 800ms ease;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+  }
+
+  ${NavContainer}:hover & {
+    cursor: pointer;
+    width: 180px;
+    height: 180px;
+
+    &::after {
+      right: 0;
+      border-left: 180px solid transparent;
+      border-bottom: 180px solid #d9bdc7;
+    }
+  }
+
+  // @media ${device.l_laptop} {
+  //   &.slanted-left {
+  //     // height: 300px;
+  //     transition: 1000ms ease;
+
+  //     &::after {
+  //       border-bottom: 160px solid #d9bdc7;
+  //     }
+
+  //     ${NavContainer}:hover & {
+  //       cursor: pointer;
+  //       width: 200px;
+  //       height: 200px;
+
+  //       &::after {
+  //         right: 0;
+  //         border-left: 200px solid transparent;
+  //         border-bottom: 200px solid #d9bdc7;
+  //       }
+  //     }
+
+  //     // &:hover {
+  //     //   height: 400px;
+
+  //     //   &:after {
+  //     //     right: 0;
+  //     //     border-left: 600px solid transparent;
+  //     //     border-bottom: 600px solid #d9bdc7;
+  //     //   }
+  //     // }
+  //   }
+  // }
+`;
+
+const Back = styled.div`
+  font-size: clamp(1rem, 0.6429rem + 1.1607vw, 1.25rem);
+  font-weight: ${theme.fontWeights.bold};
 
   a {
-    color: ${theme.colors.dark};
+    background: linear-gradient(
+      180deg,
+      rgb(70 70 71) 0%,
+      rgba(72, 72, 72, 1) 100%
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    display: inline-flex;
+    align-items: center;
     position: absolute;
-    right: ${theme.space[9]};
+    right: ${theme.space[5]};
     bottom: ${theme.space[5]};
     z-index: 1;
+  }
+`;
 
-    svg {
-      transform: translateX(10px);
-      transition: 300ms ease-out;
-      color: ${theme.colors.light[1]};
-    }
+const ArrowIcon = styled.svg`
+  width: 18px;
+  transform: translateX(0px);
+  transition: 300ms ease-out;
+  color: ${theme.colors.light[1]};
+  opacity: 0;
 
-    &:hover {
-      svg {
-        transform: translateX(26px);
-        color: ${theme.colors.accent[1]};
-      }
-    }
+  ${NavContainer}:hover & {
+    transform: translateX(10px);
+    color: ${theme.colors.accent[1]};
+    opacity: 1;
   }
 `;
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 1.5rem 1.5rem 0;
-  // font-size: clamp(1.12rem, 1.0657rem + 0.2714vw, 1.5rem);
+  margin: 1.5rem;
   color: ${theme.colors.light[1]};
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    margin: 1.5rem 1.5rem 0;
+  }
 `;
 
 const ChevronShape = styled.img`
@@ -100,6 +176,7 @@ const ChevronShape = styled.img`
 const ExperienceWrapper = styled.div`
   max-width: 400px;
   padding: 1.5rem;
+  font-size: clamp(1.12rem, 1.0657rem + 0.2714vw, 1.5rem);
 `;
 
 const General = styled(ExperienceWrapper)`
@@ -108,8 +185,12 @@ const General = styled(ExperienceWrapper)`
   }
 `;
 
+const Description = styled.p`
+  font-size: clamp(0.875rem, 1.0657rem + 0.2714vw, 1.25rem);
+`;
+
 const Professional = styled(ExperienceWrapper)`
-  background: #14151c;
+  background: ${theme.colors.dark[1]};
 `;
 
 const Job = styled.h2`
@@ -129,11 +210,6 @@ const Name = styled.p`
 const Year = styled.p`
   font-size: ${theme.space[4]};
 `;
-
-const Description = styled.p`
-  font-size: ${theme.space[7]};
-`;
-
 
 const DevImageWrapper = styled.div`
   display: flex;
@@ -170,7 +246,11 @@ const Icon = styled.div`
   align-items: center;
 
   img {
-    width: 48px;
+    width: 36px;
+
+    @media ${device.tablet} {
+      width: 48px;
+    }
 
     @media ${device.laptop} {
       width: 64px;
@@ -179,7 +259,11 @@ const Icon = styled.div`
 
   svg {
     align-self: center;
-    width: 5rem;
+    width: 4rem;
+
+    @media ${device.tablet} {
+      width: 5rem;
+    }
 
     @media ${device.laptop} {
       width: 7rem;
@@ -211,29 +295,49 @@ const Browser = styled(Icon)`
 `;
 
 const Html = styled(Icon)`
-  top: 30%;
-  right: 38%;
-  left: 0;
+  top: 37%;
+  left: 8%;
+
+  @media ${device.laptop} {
+    top: 30%;
+    right: 38%;
+    left: 0;
+  }
 
   img {
-    margin-right: 6rem;
+    margin-right: 3.5rem;
+
+    @media ${device.laptop} {
+      margin-right: 6rem;
+    }
   }
 
   svg {
-    margin-top: 1rem;
+    @media ${device.laptop} {
+      margin-top: 1rem;
+    }
   }
 `;
 
 const Css = styled(Icon)`
   flex-direction: row;
   justify-content: center;
-  bottom: 41%;
-  right: 44%;
-  left: 0;
+  bottom: 45%;
+  left: 1%;
+
+  @media ${device.laptop} {
+    bottom: 41%;
+    right: 44%;
+    left: 0;
+  }
 
   svg {
-    width: 6rem;
+    width: 4rem;
     margin: 0 0 0 1rem;
+
+    @media ${device.tablet} {
+      width: 6rem;
+    }
 
     @media ${device.laptop} {
       width: 8rem;
@@ -242,16 +346,27 @@ const Css = styled(Icon)`
 `;
 
 const JavaScript = styled(Icon)`
-  bottom: 22%;
-  right: 38%;
-  left: 0;
+  bottom: 33%;
+  left: 8%;
+
+  @media ${device.laptop} {
+    bottom: 22%;
+    right: 38%;
+    left: 0;
+  }
 
   img {
-    margin-right: 6rem;
+    margin-right: 3.5rem;
+
+    @media ${device.laptop} {
+      margin-right: 6rem;
+    }
   }
 
   svg {
-    margin: 0 0 1rem 0;
+    @media ${device.laptop} {
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -266,8 +381,11 @@ const Github = styled(Icon)`
   }
 
   svg {
-    width: 6rem;
     margin-top: 1rem;
+    
+    @media ${device.laptop} {
+      width: 6rem;
+    }
   }
 `;
 
@@ -315,7 +433,11 @@ const ContIntegration = styled(Icon)`
   }
 
   svg {
-    height: 6rem;
+    height: 4rem;
+
+    @media ${device.tablet} {
+      height: 6rem;
+    }
   }
 `;
 
@@ -330,94 +452,79 @@ const Database = styled(Icon)`
 
   svg {
     margin-bottom: 1rem;
-    height: 6rem;
-  }
-`;
+    height: 4rem;
 
-const Terminal = styled(Icon)`
-  left: 12%;
-  right: 0;
-  bottom: -1%;
-  
-
-  svg {
-    margin-bottom: 1rem;
-    height: 6rem;
-  }
-`;
-
-const Code = styled(Icon)`
-  left: 0;
-  right: 0;
-  bottom: -1%;
-
-  img {
-    margin-right: 6rem;
-  }
-`;
-
-const NavContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-`;
-
-const Navigation = styled.div`
-  position: relative;
-  height: 300px;
-  z-index: 2;
-
-  &.slanted-left {
-    width: 300px;
-
-    &::after {
-      right: 0;
-      border-left: 300px solid transparent;
-      border-bottom: 300px solid #d9bdc7;
-    }
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
-  }
-
-  @media ${device.l_laptop} {
-    &.slanted-left {
-      height: 600px;
-
-      &::after {
-        border-bottom: 600px solid #d9bdc7;
+      @media ${device.tablet} {
+        height: 6rem;
       }
     }
   }
 `;
 
+const Terminal = styled(Icon)`
+  left: 10%;
+  right: 0;
+  bottom: 14%;
 
-const Development = ({ location }) => {
+  @media ${device.tablet} {
+    left: 12%;
+    right: 0;
+    bottom: -1%;
+  }
+
+  svg {
+    margin-bottom: 1rem;
+    height: 4rem;
+
+    @media ${device.tablet} {
+      height: 6rem;
+    }
+  }
+`;
+
+const Code = styled(Icon)`
+  left: 0;
+  right: 14%;
+  bottom: 16%;
+
+  @media ${device.tablet} {
+    left: 0;
+    right: 0;
+    bottom: -1%;
+  }
+
+  img {
+    margin-top: -1.5rem;
+    margin-right: 3.5rem;
+
+    @media ${device.tablet} {
+      margin: 0 6rem 0 0;
+    }
+  }
+`;
+
+
+const Development = () => {
   return (
     <Wrapper>
       <Container>
-        <DevBox>
+        <Box>
           <NavContainer>
             <Navigation className="slanted-left">
-              <Title>
-                <a onClick={() => navigate('/about/design')}>
-                  Design
-                  <svg width="38" height="18" viewBox="0 0 42 28" fill="none">
+              <Back>
+                <a onClick={() => navigate(-1)}>
+                  Back
+                  <ArrowIcon width="38" height="18" viewBox="0 0 42 28" fill="none">
                     <path
                       d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
-                      stroke="#252835"
+                      stroke="#484848"
                       strokeWidth="4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
-                  </svg>
+                  </ArrowIcon>
                 </a>
-              </Title>
+              </Back>
             </Navigation>
           </NavContainer>
 
@@ -622,7 +729,7 @@ const Development = ({ location }) => {
               </Code>
             </IconsWrapper>
           </DevImageWrapper>
-        </DevBox>
+        </Box>
       </Container>
     </Wrapper>
   );
