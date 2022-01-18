@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { getImageURL } from "../../utils";
+import { getImageURL } from "../../helpers/getImageURL";
 
 
 const ImageStyles = styled.img`

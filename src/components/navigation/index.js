@@ -1,19 +1,21 @@
 import React from "react";
 import { Link, StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { device, theme } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 import { images } from "../images/library"
 
 const Wrapper = styled.div`
-  background: ${theme.colors.dark};
+  background: ${theme.colors.dark[0]};
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  padding: ${theme.space[9]} ${theme.space[10]};
+  padding: ${theme.space[5]} ${theme.space[6]};
 
   @media ${device.laptop} {
     justify-content: space-between;
+    padding: ${theme.space[9]} ${theme.space[10]};
   }
 `;
 
@@ -55,7 +57,7 @@ const LinkItem = styled.li`
 
 const LinkStyles = styled(Link)`
   min-height: 0vw;
-  font-size: clamp(1rem, 0.8125rem + 0.8333vw, 1.05rem);
+  font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1.05rem);
   font-weight: ${theme.fontWeights.bold};
   position: relative;
   padding: ${theme.space[5]};
@@ -81,9 +83,13 @@ const LogoLink = styled(Link)`
 
 const Logo = styled.img`
   display: inherit;
-  width ${theme.space[9]};
+  width ${theme.space[8]};
 
   @media ${device.tablet} { 
+    width: ${theme.space[9]};
+  }
+
+  @media ${device.laptop} { 
     width: ${theme.space[10]};
   }
 `;

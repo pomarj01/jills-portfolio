@@ -3,7 +3,8 @@ import styled from "styled-components";
 import Navigation from "../navigation";
 import Button from "../button";
 import { images, icons } from "../../components/images/library";
-import { theme, device } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 
 const footerSVG = images("footer_wave");
 

@@ -1,17 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import Typewriter from "typewriter-effect";
-import { device, theme } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 import ContentImages from "./HeroImages";
 import ScrollArrow from "./ScrollArrow";
 
 const Wrapper = styled.div`
-  background: ${theme.colors.dark};
-  height: 100vh;
+  background: ${theme.colors.dark[0]};
+  height: 75vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  @media ${device.tablet} {
+    height: 100vh;
+  }
 `;
 
 const ContentWrapper = styled.div`

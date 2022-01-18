@@ -2,7 +2,7 @@
 // Created using Map function to easily cherry pick which item is needed
 // Each function retrieves an item's value by key (param) from a Map by using the get() method
 
-import { getImageURL } from "../../utils";
+import { getImageURL } from "../../helpers/getImageURL";
 
 const renderShapes = [
   { name: "oblongs" },

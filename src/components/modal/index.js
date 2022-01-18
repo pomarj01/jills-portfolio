@@ -2,7 +2,7 @@ import React from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 import closeIcon from '../../assets/icons/close.svg'
-import { device } from "../../utils";
+import { device } from "../../helpers/useMediaQuery";
 
 const Container = styled.div`
   position: fixed;

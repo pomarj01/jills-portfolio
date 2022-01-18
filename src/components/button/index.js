@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import styled, { css } from "styled-components";
-import { device, theme } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 
 const complexDisplay = css`
   ${(props) =>
@@ -41,8 +42,8 @@ const complexColor = css`
   ${(props) =>
     props.variant === "custom" &&
     `
-      background: ${props.customColor};
-      color: ${props.customText};
+      background: ${props.customColor || ''};
+      color: ${props.customText || ''};
     `}
 `;
   
@@ -51,7 +52,7 @@ const BaseButton = styled.button`
   align-items: center;
   padding: ${theme.space[5]} ${theme.space[9]};
   margin: ${theme.space[4]};
-  color: ${theme.colors.dark};
+  color: ${theme.colors.dark[0]};
   border-radius: ${theme.radii.base};
   font-weight: ${theme.fontWeights.bold};
   ${(props) => (props.hidden ? complexDisplay : "display: flex")};
@@ -60,7 +61,7 @@ const BaseButton = styled.button`
   &:hover:not(:disabled),
   &:active:not(:disabled),
   &:focus {
-    color: ${theme.colors.dark};
+    color: ${theme.colors.dark[0]};
     border-color: ${theme.colors.accent[0]};
     background-color: ${theme.colors.accent[0]};
   }

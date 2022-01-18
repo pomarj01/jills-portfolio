@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../utils';
+import { theme } from "../helpers/theme";
 import Hero from './hero';
 import About from './about';
 import Projects from './projects';

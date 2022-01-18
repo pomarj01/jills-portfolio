@@ -2,7 +2,7 @@ import * as React from "react";
 import { Helmet } from "react-helmet";
 import App from "./App";
 import "../styles/index.css";
-import { headTags } from "../utils";
+import { headTags } from "../helpers/data";
 import favicon from "../assets/favicon/favicon.ico";
 import favicon_16x16 from "../assets/favicon/favicon-16x16.png";
 import favicon_32x32 from "../assets/favicon/favicon-32x32.png";
