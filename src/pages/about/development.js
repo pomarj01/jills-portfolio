@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
 import { icons, images, shapes } from "../../components/images/library";
-import { device, theme } from "../../utils";
+import { personalData } from "../../helpers/data";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -505,6 +507,8 @@ const Code = styled(Icon)`
 
 
 const Development = () => {
+  const { description, description_extra, project: { type, company, date, info} } = personalData.development;
+
   return (
     <Wrapper>
       <Container>
@@ -532,26 +536,17 @@ const Development = () => {
             <ChevronShape src={shapes("double_chevrons")} alt="double chevron vector" />
 
             <General>
-              <Description>
-                I’m a Front-End Developer who has a passion for creating
-                intuitive user interfaces and experiences.
-              </Description>
-              <Description>
-                My focus area in the last few years has been with React and
-                aiming to be skilled in back-end with Node.js.
-              </Description>
+              <Description> {description} </Description>
+              <Description> {description_extra} </Description>
             </General>
 
             <Professional>
-              <Job>Front-End Developer</Job>
+              <Job> {type} </Job>
               <Company>
-                <Name>Workray</Name>
-                <Year>2016-2020</Year>
+                <Name> {company} </Name>
+                <Year> {date} </Year>
               </Company>
-              <Description>
-                A software tool that manages all your jobs and tracks the
-                progress of your applications in one place.
-              </Description>
+              <Description> {info} </Description>
             </Professional>
           </Content>
 

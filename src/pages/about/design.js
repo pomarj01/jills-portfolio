@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
 import { icons, images, shapes } from "../../components/images/library";
-import { device, theme } from "../../utils";
+import { personalData } from "../../helpers/data";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -367,9 +369,9 @@ const Typography = styled(Icon)`
 `;
 
 
-const sideProjects = [ 'Waitron UK', 'FoodBooklet', 'SimplySkin', 'HeatTech', 'Icon designs' ]
-
-const Design = () => {
+const Design = () => {  
+  const { description, project: { type, date, list} } = personalData.design;
+  
   return (
     <Wrapper>
       <Container>
@@ -395,20 +397,16 @@ const Design = () => {
 
           <Content>
             <General>
-              <Description>
-                I’ve recently taken interest in web designing as well as
-                iconography. The illustration below and in the rest of the site
-                showcase this recent skills I’ve developed using mainly Figma.
-              </Description>
+              <Description>{description} </Description>
             </General>
 
             <RoundedWaveShape src={shapes("rounded_wave")} alt="rounded waves vector" />
 
             <Projects>
-              <Header>Side projects</Header>
-              <Year>2020-Present</Year>
+              <Header>{type}</Header>
+              <Year>{date}</Year>
               <List>
-                {sideProjects.map((project, i) => (
+                {list.map((project, i) => (
                   <Item key={i}>{project}</Item>
                 ))}
               </List>
