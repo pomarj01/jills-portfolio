@@ -3,7 +3,10 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { useResizer } from "../../components/hooks/useResizer";
 import { images, icons } from "../../components/images/library";
-import { device, theme } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
+import dev from "../../assets/mobile_dev_monitor.svg";
+import des from "../../assets/mobile_design_monitor.svg";
 
 const Wrapper = styled.div`
   height: ${(props) => (props.isHomepage ? "80vh" : "95vh")};
@@ -86,6 +89,10 @@ const DesignBox = styled(Box)`
   }
 `;
 
+const MobileImg = styled.img`
+  width: 50%;
+`;
+
 const Title = styled.div`
   font-size: clamp(1.5rem, -0.5rem + 6.6667vw, 2.5rem);
   // font-size: clamp(1.5rem, 0.6429rem + 1.1607vw, 2.5rem);
@@ -125,15 +132,15 @@ const DesignTitle = styled(Title)`
   z-index: 3;
 
   a {
-    color: ${theme.colors.dark};
+    color: ${theme.colors.dark[0]};
 
     &:hover {
-      color: ${theme.colors.dark};
+      color: ${theme.colors.dark[0]};
     }
 
     svg {
       &:hover {
-        color: ${theme.colors.dark};
+        color: ${theme.colors.dark[0]};
       }
     }
   }
@@ -144,7 +151,7 @@ const ImageWrapper = styled.div`
   align-items: center;
   height: 100%;
   width: 100%;
-  transition: 5s;
+  transition: all 5s ease 0s;
   z-index: 2;
   position: relative;
 `;
@@ -517,235 +524,271 @@ const Pen = styled(Icon)`
   }
 `;
 
+const SmallDeviceComponent = () => (
+  <>
+    <DevBox>
+      <DevTitle>
+        <Link to="/about/development">
+          Development
+          <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+            <path
+              d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+              stroke="#CEACB7"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </DevTitle>
+      <MobileImg src={dev} />
+    </DevBox>
+
+    <DesignBox>
+      <Link to="/about/design">
+        Design
+        <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+          <path
+            d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+            stroke="#252835"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Link>
+      <MobileImg src={des} />
+    </DesignBox>
+  </>
+);
+
+const MediumDeviceComponent = (isHomepage) => {
+  return (
+    <>
+      <DevBox>
+        <DevTitle>
+          <Link to="/about/development">
+            Development
+            <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+              <path
+                d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+                stroke="#CEACB7"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </DevTitle>
+
+        <DevImageWrapper className="illustration_wrapper">
+          <DevIllustration
+            src={images("dev_illustration")}
+            alt="development illustration"
+          />
+
+          <IconsWrapper>
+            <ABTest isHomepage={isHomepage}>
+              <img src={icons("ab_testing_light")} alt="a/b testing icon" />
+              <svg width="18" height="130" viewBox="0 0 18 130" fill="none">
+                <path
+                  d="M9 129V1M9 1H17M9 1H1"
+                  stroke="#8D8D8D"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+            </ABTest>
+
+            <Browser isHomepage={isHomepage}>
+              <img src={icons("browser_light")} alt="browser icon" />
+              <svg width="159" height="130" viewBox="0 0 159 130" fill="none">
+                <path
+                  d="M158 129V49.5C158 45.0817 154.418 41.5 150 41.5H17C12.5817 41.5 9 37.9183 9 33.5V1M9 1H17M9 1H1"
+                  stroke="#8D8D8D"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+            </Browser>
+
+            <Html isHomepage={isHomepage}>
+              <img src={icons("html_light")} alt="hmtl icon" />
+              <svg width="147" height="46" viewBox="0 0 147 46" fill="none">
+                <path
+                  d="M146 44.9998H17C12.5817 44.9998 9 41.4181 9 36.9998V1M9 1H17M9 1H1"
+                  stroke="#8D8D8D"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+            </Html>
+
+            <Css isHomepage={isHomepage}>
+              <img src={icons("css_light")} alt="css icon" />
+              <svg width="191" height="18" viewBox="0 0 191 18" fill="none">
+                <path
+                  d="M190 9H90H1M1 9V1M1 9V17"
+                  stroke="#8D8D8D"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+            </Css>
+
+            <JavaScript isHomepage={isHomepage}>
+              <svg width="146" height="46" viewBox="0 0 146 46" fill="none">
+                <path
+                  d="M145 1.00012H17C12.5817 1.00012 8.99997 4.58184 8.99997 9.00012V45M8.99997 45H17M8.99997 45H1"
+                  stroke="#8D8D8D"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeDasharray="10 10"
+                />
+              </svg>
+              <img src={icons("js_light")} alt="js icon" />
+            </JavaScript>
+          </IconsWrapper>
+        </DevImageWrapper>
+      </DevBox>
+
+      <DesignBox>
+        <DesignTitle>
+          <Link to="/about/design">
+            Design
+            <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
+              <path
+                d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
+                stroke="#252835"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </Link>
+        </DesignTitle>
+
+        <DesignImageWrapper className="illustration_wrapper">
+          <DesignIllustration
+            src={images("des_illustration")}
+            alt="design illustration"
+          />
+
+          <IconsWrapper>
+            <Ruler isHomepage={isHomepage}>
+              <img src={icons("ruler_dark")} alt="ruler icon" />
+              <svg width="106" height="83" viewBox="0 0 106 83" fill="none">
+                <path
+                  d="M13 48.5C11.3431 48.5 10 49.8431 10 51.5V78C10 80.7614 7.76142 83 5 83C2.23858 83 0 80.7614 0 78V51.5C0 44.3203 5.8203 38.5 13 38.5H27V48.5H13Z"
+                  fill="#CEACB7"
+                />
+                <path
+                  d="M5 78V73M97 1H105M97 1H89M97 1V36C97 40.4183 93.4183 44 89 44H29M5 70V65M5 62V57M5 54V49M5 46V46C5 44.8954 5.89543 44 7 44H9M12 44H17M20 44H25"
+                  stroke="#F2E2E7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Ruler>
+
+            <Scale isHomepage={isHomepage}>
+              <svg width="111" height="18" viewBox="0 0 111 18" fill="none">
+                <path
+                  d="M5.07353 14C2.2715 14 3.39262e-07 11.7614 2.18557e-07 8.99999C9.78511e-08 6.23857 2.2715 4 5.07353 4L69 4.00001L69 14L5.07353 14Z"
+                  fill="#CEACB7"
+                />
+                <path
+                  d="M5 9H10M110 9V17M110 9V1M110 9L71 9M13 9H18M21 9H26M29 9H34M37 9H42M45 9L50 9M53 9H58M61 9H67"
+                  stroke="#F2E2E7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+
+              <img src={icons("scale_dark")} alt="scale icon" />
+            </Scale>
+
+            <Crop isHomepage={isHomepage}>
+              <svg width="129" height="69" viewBox="0 0 129 69" fill="none">
+                <path
+                  d="M5 10C2.23858 10 3.39263e-07 7.76143 2.18557e-07 5C9.78512e-08 2.23858 2.23858 2.87452e-06 5 2.75382e-06L68 1.34803e-05L68 10L5 10Z"
+                  fill="#CEACB7"
+                />
+                <path
+                  d="M5 5.00001L10 5.00001M119.967 68L128 68M119.967 68L111.935 68M119.967 68L119.967 13C119.967 8.58175 116.386 5.00002 111.967 5.00002L70 5.00002M13 5.00001L18 5.00001M21 5.00001L26 5.00001M29 5.00001L34 5.00001M37 5.00001L42 5.00001M45 5.00001L50 5.00001M53 5.00001L58 5.00001M61 5.00001L66 5.00002"
+                  stroke="#F2E2E7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <img src={icons("crop_dark")} alt="crop icon" />
+            </Crop>
+
+            <Grid isHomepage={isHomepage}>
+              <svg width="18" height="103" viewBox="0 0 18 103" fill="none">
+                <path
+                  d="M4 5.19608C4 2.32636 6.23857 9.25541e-08 9 5.96244e-08C11.7614 2.66948e-08 14 2.32636 14 5.19608L14 53L4 53L4 5.19608Z"
+                  fill="#CEACB7"
+                />
+                <path
+                  d="M9 5L9 10M9 102L17 102M9 102L0.999999 102M9 102L9 55M9 13L9 18M9 21L9 27M9 30L9 35M9 38L9 43M9 46L9 51"
+                  stroke="#F2E2E7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <img src={icons("grid_dark")} alt="grid icon" />
+            </Grid>
+
+            <Pen isHomepage={isHomepage}>
+              <svg width="114" height="90" viewBox="0 0 114 108" fill="none">
+                <path
+                  d="M109 5.96244e-08C111.761 2.66948e-08 114 2.23858 114 5L114 45C114 52.1797 108.18 58 101 58L87 58L87 53L87 48L101 48C102.657 48 104 46.6569 104 45L104 5C104 2.23858 106.239 9.2554e-08 109 5.96244e-08Z"
+                  fill="#CEACB7"
+                />
+                <path
+                  d="M109 5L109 10M9 107L17 107M9 107L1 107M9 107L9 61C9 56.5817 12.5817 53 17 53L85 53M109 14L109 19M109 22L109 27M109 30L109 35M109 38L109 43.5M109 47L109 49C109 51.2091 107.209 53 105 53V53M102 53L97 53M94 53L89 53"
+                  stroke="#F2E2E7"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <img src={icons("pen_dark")} alt="pen icon" />
+            </Pen>
+          </IconsWrapper>
+        </DesignImageWrapper>
+      </DesignBox>
+    </>
+  );
+};
+
 const About = ({ location }) => {
   const isHomepage = location.pathname === "/";
   const isMobile = useResizer();
 
   return (
     <Wrapper id="about" isHomepage={isHomepage}>
-      {isMobile ? (
-        <div> For mobile </div>
-      ) : (
-        <Container>
-          <DevBox>
-            <DevTitle>
-              <Link to="/about/development">
-                Development
-                <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
-                  <path
-                    d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
-                    stroke="#CEACB7"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </DevTitle>
-
-            <DevImageWrapper className="illustration_wrapper">
-              <DevIllustration
-                src={images("dev_illustration")}
-                alt="development illustration"
-              />
-
-              <IconsWrapper>
-                <ABTest isHomepage={isHomepage}>
-                  <img src={icons("ab_testing_light")} alt="a/b testing icon" />
-                  <svg width="18" height="130" viewBox="0 0 18 130" fill="none">
-                    <path
-                      d="M9 129V1M9 1H17M9 1H1"
-                      stroke="#8D8D8D"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="10 10"
-                    />
-                  </svg>
-                </ABTest>
-
-                <Browser isHomepage={isHomepage}>
-                  <img src={icons("browser_light")} alt="browser icon" />
-                  <svg
-                    width="159"
-                    height="130"
-                    viewBox="0 0 159 130"
-                    fill="none"
-                  >
-                    <path
-                      d="M158 129V49.5C158 45.0817 154.418 41.5 150 41.5H17C12.5817 41.5 9 37.9183 9 33.5V1M9 1H17M9 1H1"
-                      stroke="#8D8D8D"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="10 10"
-                    />
-                  </svg>
-                </Browser>
-
-                <Html isHomepage={isHomepage}>
-                  <img src={icons("html_light")} alt="hmtl icon" />
-                  <svg width="147" height="46" viewBox="0 0 147 46" fill="none">
-                    <path
-                      d="M146 44.9998H17C12.5817 44.9998 9 41.4181 9 36.9998V1M9 1H17M9 1H1"
-                      stroke="#8D8D8D"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="10 10"
-                    />
-                  </svg>
-                </Html>
-
-                <Css isHomepage={isHomepage}>
-                  <img src={icons("css_light")} alt="css icon" />
-                  <svg width="191" height="18" viewBox="0 0 191 18" fill="none">
-                    <path
-                      d="M190 9H90H1M1 9V1M1 9V17"
-                      stroke="#8D8D8D"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="10 10"
-                    />
-                  </svg>
-                </Css>
-
-                <JavaScript isHomepage={isHomepage}>
-                  <svg width="146" height="46" viewBox="0 0 146 46" fill="none">
-                    <path
-                      d="M145 1.00012H17C12.5817 1.00012 8.99997 4.58184 8.99997 9.00012V45M8.99997 45H17M8.99997 45H1"
-                      stroke="#8D8D8D"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeDasharray="10 10"
-                    />
-                  </svg>
-                  <img src={icons("js_light")} alt="js icon" />
-                </JavaScript>
-              </IconsWrapper>
-            </DevImageWrapper>
-          </DevBox>
-
-          <DesignBox>
-            <DesignTitle>
-              <Link to="/about/design">
-                Design
-                <svg width="42" height="28" viewBox="0 0 42 28" fill="none">
-                  <path
-                    d="M2 14H39.5M39.5 14L27.5 2M39.5 14L27.5 26"
-                    stroke="#252835"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </DesignTitle>
-
-            <DesignImageWrapper className="illustration_wrapper">
-              <DesignIllustration
-                src={images("des_illustration")}
-                alt="design illustration"
-              />
-
-              <IconsWrapper>
-                <Ruler isHomepage={isHomepage}>
-                  <img src={icons("ruler_dark")} alt="ruler icon" />
-                  <svg width="106" height="83" viewBox="0 0 106 83" fill="none">
-                    <path
-                      d="M13 48.5C11.3431 48.5 10 49.8431 10 51.5V78C10 80.7614 7.76142 83 5 83C2.23858 83 0 80.7614 0 78V51.5C0 44.3203 5.8203 38.5 13 38.5H27V48.5H13Z"
-                      fill="#CEACB7"
-                    />
-                    <path
-                      d="M5 78V73M97 1H105M97 1H89M97 1V36C97 40.4183 93.4183 44 89 44H29M5 70V65M5 62V57M5 54V49M5 46V46C5 44.8954 5.89543 44 7 44H9M12 44H17M20 44H25"
-                      stroke="#F2E2E7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Ruler>
-
-                <Scale isHomepage={isHomepage}>
-                  <svg width="111" height="18" viewBox="0 0 111 18" fill="none">
-                    <path
-                      d="M5.07353 14C2.2715 14 3.39262e-07 11.7614 2.18557e-07 8.99999C9.78511e-08 6.23857 2.2715 4 5.07353 4L69 4.00001L69 14L5.07353 14Z"
-                      fill="#CEACB7"
-                    />
-                    <path
-                      d="M5 9H10M110 9V17M110 9V1M110 9L71 9M13 9H18M21 9H26M29 9H34M37 9H42M45 9L50 9M53 9H58M61 9H67"
-                      stroke="#F2E2E7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-
-                  <img src={icons("scale_dark")} alt="scale icon" />
-                </Scale>
-
-                <Crop isHomepage={isHomepage}>
-                  <svg width="129" height="69" viewBox="0 0 129 69" fill="none">
-                    <path
-                      d="M5 10C2.23858 10 3.39263e-07 7.76143 2.18557e-07 5C9.78512e-08 2.23858 2.23858 2.87452e-06 5 2.75382e-06L68 1.34803e-05L68 10L5 10Z"
-                      fill="#CEACB7"
-                    />
-                    <path
-                      d="M5 5.00001L10 5.00001M119.967 68L128 68M119.967 68L111.935 68M119.967 68L119.967 13C119.967 8.58175 116.386 5.00002 111.967 5.00002L70 5.00002M13 5.00001L18 5.00001M21 5.00001L26 5.00001M29 5.00001L34 5.00001M37 5.00001L42 5.00001M45 5.00001L50 5.00001M53 5.00001L58 5.00001M61 5.00001L66 5.00002"
-                      stroke="#F2E2E7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <img src={icons("crop_dark")} alt="crop icon" />
-                </Crop>
-
-                <Grid isHomepage={isHomepage}>
-                  <svg width="18" height="103" viewBox="0 0 18 103" fill="none">
-                    <path
-                      d="M4 5.19608C4 2.32636 6.23857 9.25541e-08 9 5.96244e-08C11.7614 2.66948e-08 14 2.32636 14 5.19608L14 53L4 53L4 5.19608Z"
-                      fill="#CEACB7"
-                    />
-                    <path
-                      d="M9 5L9 10M9 102L17 102M9 102L0.999999 102M9 102L9 55M9 13L9 18M9 21L9 27M9 30L9 35M9 38L9 43M9 46L9 51"
-                      stroke="#F2E2E7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <img src={icons("grid_dark")} alt="grid icon" />
-                </Grid>
-
-                <Pen isHomepage={isHomepage}>
-                  <svg
-                    width="114"
-                    height="90"
-                    viewBox="0 0 114 108"
-                    fill="none"
-                  >
-                    <path
-                      d="M109 5.96244e-08C111.761 2.66948e-08 114 2.23858 114 5L114 45C114 52.1797 108.18 58 101 58L87 58L87 53L87 48L101 48C102.657 48 104 46.6569 104 45L104 5C104 2.23858 106.239 9.2554e-08 109 5.96244e-08Z"
-                      fill="#CEACB7"
-                    />
-                    <path
-                      d="M109 5L109 10M9 107L17 107M9 107L1 107M9 107L9 61C9 56.5817 12.5817 53 17 53L85 53M109 14L109 19M109 22L109 27M109 30L109 35M109 38L109 43.5M109 47L109 49C109 51.2091 107.209 53 105 53V53M102 53L97 53M94 53L89 53"
-                      stroke="#F2E2E7"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <img src={icons("pen_dark")} alt="pen icon" />
-                </Pen>
-              </IconsWrapper>
-            </DesignImageWrapper>
-          </DesignBox>
-        </Container>
-      )}
+      <Container>
+        {isMobile ? (
+          <SmallDeviceComponent />
+        ) : (
+          <MediumDeviceComponent isHomepage={isHomepage} />
+        )}
+      </Container>
     </Wrapper>
   );
 };
