@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Button from "../button";
-import { device, theme } from "../../utils";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
+
 
 const DefaultCard = styled.div`
   background: ${(props) => props.background};
@@ -152,18 +154,18 @@ const BaseCard = (props) => {
       </CardDescription>
 
       <CardTags>
-        {tags &&
+        {(tags &&
           tags.map((tag, i) => (
             <Tag 
               key={i}
               color={tagsColor}
             > {tag} </Tag>
-          )) ||
+          ))) ||
           <span> Tag not provided </span>}
       </CardTags>
 
-      <CardMedia background={mediaBackground} style={mediaWrapperStyles}>
-        {media &&
+      <CardMedia background={mediaBackground} style={(mediaWrapperStyles)}>
+        {(media &&
           media.map((img, i) => (
             <Image 
               src={img}
@@ -171,7 +173,7 @@ const BaseCard = (props) => {
               size={mediaSize}
               style={imageStyles}
             />
-          )) || <span> Image not provided </span>}
+          ))) || <span> Image not provided </span>}
       </CardMedia>
 
       {cta && (

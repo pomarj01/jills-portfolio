@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Card from "../../components/card";
+import Modal from "../../components/modal";
 import { shapes, images, icons } from "../../components/images/library";
-import { device, theme } from "../../utils";
+import { projectData } from "../../helpers/data";
+import { theme } from "../../helpers/theme";
+import { device } from "../../helpers/useMediaQuery";
 
 const Wrapper = styled.div`
   background: ${theme.colors.light[0]};
-  color: ${theme.colors.dark};
+  color: ${theme.colors.dark[0]};
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -42,192 +45,72 @@ const Project = styled.div`
   }
 `;
 
-const Shapes = styled.img`
-  position: absolute;
-  display: none;
-
-  @media ${device.laptop} {
-    display: block;
-  }
-`;
-
-const OblongsStyles = styled(Shapes)`
-  left: 0;
-  top: 0;
-  width: 5%;
-`;
-
-const EclipsesStyles = styled(Shapes)`
-  right: 0;
-  bottom: 10%;
-  width: 4%;
-`;
-
-const BigWavesStyles = styled(Shapes)`
-  left: 0;
-  top: 0;
-  width: 12%;
-`;
-
-const DoubleWavesStyles = styled(Shapes)`
-  left: 16%;
-  top: 25%;
-  width: 5%;
-`;
-
-const SquareDotsStyles = styled(Shapes)`
-  right: 18%;
-  top: 2%;
-  width: 4%;
-`;
-
-const FilledOblongsStyles = styled(Shapes)`
-  right: 0;
-  bottom: 20%;
-  width: 6%;
-`;
-
-const TriangleCircleStyles = styled(Shapes)`
-  left: 16%;
-  top: 0%;
-  width: 6%;
-`;
-
-const CircledLinesDotsStyles = styled(Shapes)`
-  right: 17%;
-  bottom: 3%;
-  width: 7%;
-`;
-
 const CardWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const Projects = () => (
-  <Wrapper>
-    <Title>Personal Projects</Title>
+const projectContent = projectData.map((project) => {
+  const getMediaURL = project.media.map((name) =>
+    project.title !== "Icon Designs" ? images(`${name}`) : icons(`${name}`)
+  );
 
-    <Content>
-      <Project>
-        <OblongsStyles src={shapes("oblongs")} alt="oblongs vector" />
-        <CardWrapper>
-          <Card
-            background="#ddebf4"
-            header="Waitron UK"
-            description="An ordering system web app aimed to be used by local pubs. Designed both admin and user side of the app. The admin side was targeted on tablet devices while for the customer side was on mobile."
-            tags={["Design", "Figma"]}
-            tagsColor="#adc8d9"
-            media={[images("waitron_dashboard")]}
-            mediaSize="30rem"
-            ctaContent="Full Project"
-          />
-        </CardWrapper>
-        <EclipsesStyles src={shapes("eclipses")} alt="eclipses vector" />
-      </Project>
+  const getShapeURL = project.shapes.map((a) => {
+    const url = shapes(a.name);
+    return { url, ...a };
+  });
 
-      <Project>
-        <BigWavesStyles src={shapes("big_waves")} alt="big waves vector" />
-        <CardWrapper>
-          <Card
-            background="#E5F0EF"
-            header="FoodBooklet"
-            description="A cooking booklet web app where you can organise all your recipes as well as plan them by creating shopping list. Designed using Figma and developed using MERN stack."
-            tags={[
-              "Design",
-              "Development",
-              "Figma",
-              "ReactJS",
-              "MongoDB",
-              "Express",
-              "Node.js",
-            ]}
-            tagsColor="#ADCCC9"
-            media={[images("fb_landing"), images("fb_register")]}
-            mediaSize="20rem"
-            ctaContent="Full Project"
-          />
-        </CardWrapper>
-      </Project>
+  project.media = getMediaURL;
+  project.shapes = getShapeURL;
 
-      <Project>
-        <DoubleWavesStyles
-          src={shapes("double_waves")}
-          alt="double waves vector"
-        />
-        <CardWrapper>
-          <Card
-            background="#EEDFDC"
-            header="HeatTech"
-            description="A simple and straight forward website for a plumbing and repair services company which only provides information, fetaures and contact details of the company. Only created designs for mobile view using Figma."
-            tags={["Design", "Figma"]}
-            tagsColor="#DDC1BB"
-            media={[images("heattech"), images("heattech_2")]}
-            mediaSize="260px"
-            ctaContent="Full Project"
-          />
-        </CardWrapper>
-        <SquareDotsStyles
-          src={shapes("square_dots")}
-          alt="squared dots vector"
-        />
-        <FilledOblongsStyles src={shapes("filled_oblongs")} />
-      </Project>
+  return { ...project };
+});
 
-      <Project>
-        <TriangleCircleStyles
-          src={shapes("triangle_circle")}
-          alt="triangle with circles vector"
-        />
-        <CardWrapper>
-          <Card
-            background="#F6EDD3"
-            header="Icon Designs"
-            description="A collection of icons ranging from outline to filled icons. These icons were created using the easiest styles such as basic shapes and lines and incoroporated colours using Figma."
-            tags={["Design", "Figma"]}
-            tagsColor="#E5CB80"
-            media={[
-              icons("monitor_dark"),
-              icons("palette_dark"),
-              icons("pen_dark"),
-              icons("vector_dark"),
-              icons("wireframe_dark"),
-              icons("code_dark"),
-              icons("js_dark"),
-              icons("cloud_dark"),
-              icons("ab_testing_dark"),
-              icons("github_dark"),
-              icons("planet"),
-              icons("paint_roller"),
-              icons("spaceship"),
-              icons("letterJ"),
-              icons("letterP"),
-            ]}
-            mediaSize="64px"
-            mediaWrapperStyles={{
-              flexWrap: "wrap",
-              margin: "1rem 0",
-              maxWidth: "450px",
-              height: "280px",
-              justifyContent: "space-around",
-              alignContent: "space-around",
-            }}
-            imageStyles={{
-              boxShadow: "none",
-              display: "flex",
-              width: "16%",
-            }}
-            mediaBackground="#fff"
-            ctaContent="Full Project"
-          />
-        </CardWrapper>
-        <CircledLinesDotsStyles
-          src={shapes("circledLines_dots")}
-          alt="circled lines vector"
-        />
-      </Project>
-    </Content>
-  </Wrapper>
-);
+
+const Projects = () => {
+  const [isOpen, setOpen] = useState(false);
+  const [project, setProject] = useState([{}]);
+  const toggleModal = (project) => {
+    setProject(project);
+    setOpen(!isOpen);
+  };
+
+  return (
+    <Wrapper>
+      <Title>Personal Projects</Title>
+
+      <Modal show={isOpen} close={toggleModal} data={project} />
+
+      <Content>
+        {projectContent.map((project, i) => (
+          <Project key={i}>
+            <CardWrapper>
+              <Card
+                background={project.background}
+                header={project.title}
+                description={project.description}
+                tags={project.tags}
+                tagsColor={project.tagsColor}
+                media={project.media}
+                mediaSize={project.mediaSize}
+                ctaContent="Full Project"
+                ctaOnClick={() =>
+                  toggleModal({
+                    header: `${project.title}`,
+                    description: `${project.description}`,
+                  })
+                }
+                mediaWrapperStyles={project.mediaWrapperStyles}
+                imageStyles={project.imageStyles}
+                mediaBackground={project.mediaBackground}
+              />
+            </CardWrapper>
+
+          </Project>
+        ))}
+      </Content>
+    </Wrapper>
+  );
+};
 
 export default Projects;
