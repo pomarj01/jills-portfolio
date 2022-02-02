@@ -60,7 +60,24 @@ export const projectData = [
     tagsColor: "#adc8d9",
     media: ["waitron_dashboard"],
     mediaSize: "30rem",
-    ctaContent: "Full Project",
+    shapes: [
+      {
+        name: "oblongs",
+        styles: {
+          left: "0%",
+          top: "0%",
+          width: "5%",
+        },
+      },
+      {
+        name: "eclipses",
+        styles: {
+          right: "0%",
+          bottom: "10%",
+          width: "4%",
+        },
+      },
+    ],
   },
   {
     title: "FoodBooklet",
@@ -79,7 +96,16 @@ export const projectData = [
     tagsColor: "#ADCCC9",
     media: ["fb_landing", "fb_register"],
     mediaSize: "20rem",
-    ctaContent: "Full Project",
+    shapes: [
+      {
+        name: "big_waves",
+        styles: {
+          left: "0%",
+          top: "0%",
+          width: "12%",
+        },
+      },
+    ],
   },
   {
     title: "HeatTech",
@@ -90,7 +116,32 @@ export const projectData = [
     tagsColor: "#DDC1BB",
     media: ["heattech", "heattech_2"],
     mediaSize: "260px",
-    ctaContent: "Full Project",
+    shapes: [
+      {
+        name: "double_waves",
+        styles: {
+          left: "16%",
+          top: "25%",
+          width: "5%",
+        },
+      },
+      {
+        name: "square_dots",
+        styles: {
+          right: "18%",
+          top: "2%",
+          width: "4%",
+        },
+      },
+      {
+        name: "filled_oblongs",
+        styles: {
+          right: "0%",
+          bottom: "20%",
+          width: "6%",
+        },
+      },
+    ],
   },
   {
     title: "Icon Designs",
@@ -117,57 +168,37 @@ export const projectData = [
       "letterP",
     ],
     mediaSize: "64px",
-    ctaContent: "Full Project",
+    mediaWrapperStyles: {
+      flexWrap: "wrap",
+      margin: "1rem 0",
+      maxWidth: "450px",
+      height: "280px",
+      justifyContent: "space-around",
+      alignContent: "space-around",
+    },
+    imageStyles: {
+      boxShadow: "none",
+      display: "flex",
+      width: "16%",
+    },
+    mediaBackground: "#fff",
+    shapes: [
+      {
+        name: "triangle_circle",
+        styles: {
+          left: "16%",
+          top: "0%",
+        },
+      },
+      {
+        name: "circledLines_dots",
+        styles: {
+          right: "17%",
+          bottom: "3%",
+          width: "7%",
+        },
+      },
+    ],
   },
 ];
 
-// export const projectData = {
-//   project_1: {
-//     title: "Waitron UK",
-//     description:
-//       "An ordering system web app aimed to be used by local pubs. Designed both admin and user side of the app. The admin side was targeted on tablet devices while for the customer side was on mobile.",
-//     background: "#ddebf4",
-//     tags: ["Design", "Figma"],
-//     tagsColor: "#adc8d9",
-//     mediaSize: "30rem",
-//     ctaContent: "Full Project",
-//   },
-//   project_2: {
-//     title: "FoodBooklet",
-//     description:
-//       "A cooking booklet web app where you can organise all your recipes as well as plan them by creating shopping list. Designed using Figma and developed using MERN stack.",
-//     background: "#E5F0EF",
-//     tags: [
-//       "Design",
-//       "Development",
-//       "Figma",
-//       "ReactJS",
-//       "MongoDB",
-//       "Express",
-//       "Node.js",
-//     ],
-//     tagsColor: "#ADCCC9",
-//     mediaSize: "20rem",
-//     ctaContent: "Full Project",
-//   },
-//   project_3: {
-//     title: "HeatTech",
-//     description:
-//       "A simple and straight forward website for a plumbing and repair services company which only provides information, fetaures and contact details of the company. Only created designs for mobile view using Figma.",
-//     background: "#EEDFDC",
-//     tags: ["Design", "Figma"],
-//     tagsColor: "#DDC1BB",
-//     mediaSize: "260px",
-//     ctaContent: "Full Project",
-//   },
-//   project_4: {
-//     title: "Icon Designs",
-//     description:
-//       "A collection of icons ranging from outline to filled icons. These icons were created using the easiest styles such as basic shapes and lines and incoroporated colours using Figma.",
-//     background: "#F6EDD3",
-//     tags: ["Design", "Figma"],
-//     tagsColor: "#E5CB80",
-//     mediaSize: "64px",
-//     ctaContent: "Full Project",
-//   },
-// };
